@@ -157,3 +157,11 @@ header {
 }
 
 /* RECENT SEARCHES END */
+
+/* FOOTER SECTION START */
+.main-footer h5 {
+  padding: 20px 0;
+  background: black;
+  color: white;
+  text-align: center;
+}
