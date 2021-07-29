@@ -23,7 +23,7 @@ header {
   font-weight: 200;
 }
 
-nav a {
+.recent-search-nav {
   color: #fff;
   /* text-transform: uppercase; */
   text-decoration: none;
@@ -33,19 +33,19 @@ nav a {
   position: relative;
 }
 
-nav a:after {
+.recent-search-nav:after {
   background: none repeat scroll 0 0 transparent;
   bottom: 0;
   content: '';
   display: block;
-  height: 2px;
+  height: 3px;
   left: 0%;
   position: absolute;
   background: rgb(184, 148, 73);
   transition: width 0.5s ease 0s, left 0.5s ease 0s;
   width: 0;
 }
-nav a:hover:after {
+.recent-search-nav:hover:after {
   width: 100%;
   left: 0;
 }
