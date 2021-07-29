@@ -157,6 +157,11 @@ address a {
   right: 0px;
   height: 71vh;
   width: 100%;
+  -webkit-filter: grayscale(30%);
+  -moz-filter: grayscale(30%);
+  -ms-filter: grayscale(30%);
+  -o-filter: grayscale(30%);
+  filter: grayscale(30%);
 }
 
 /* FOOTER SECTION START */
