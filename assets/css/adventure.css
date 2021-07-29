@@ -43,6 +43,14 @@ main {
   margin-top: 30px;
 }
 
+nav h2 {
+  color: rgb(184, 148, 73);
+  font-size: 20px;
+  margin-right: 50px;
+  font-weight: 200;
+  letter-spacing: 0.15em;
+}
+
 /* RESTAURANT/EVENTS SECTION START */
 .restaurant,
 .event {
@@ -131,8 +139,8 @@ address a {
   background-color: rgba(255, 255, 255, 1);
   width: 70%;
   border: solid;
-  color: rgba(169, 125, 5, 1);
-  border-color: rgba(169, 125, 5, 0.6);
+  color: rgb(184, 148, 73);
+  border-color: rgba(184, 148, 73, 0.6);
   box-shadow: 0 1px 10px rgb(0 0 0 / 0.1);
   border-width: 1px;
   border-radius: 25px;
@@ -167,9 +175,10 @@ address a {
 /* FOOTER SECTION START */
 .main-footer h5 {
   padding: 20px 0;
-  background: black;
+  background: rgba(205, 205, 205);
   color: white;
   text-align: center;
+  font-weight: 300;
   position: absolute;
   bottom: 0;
   width: 100%;

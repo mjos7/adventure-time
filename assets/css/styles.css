@@ -23,6 +23,33 @@ header {
   font-weight: 200;
 }
 
+nav a {
+  color: #fff;
+  /* text-transform: uppercase; */
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  display: inline-block;
+  padding: 15px 20px;
+  position: relative;
+}
+
+nav a:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: '';
+  display: block;
+  height: 2px;
+  left: 0%;
+  position: absolute;
+  background: rgb(184, 148, 73);
+  transition: width 0.5s ease 0s, left 0.5s ease 0s;
+  width: 0;
+}
+nav a:hover:after {
+  width: 100%;
+  left: 0;
+}
+
 /* NAVIGATION END */
 
 /* HERO SECTION START */
@@ -50,7 +77,7 @@ header {
 }
 
 #adventure {
-  color: #ffc576;
+  color: rgb(184, 148, 73);
 }
 
 .hero-statement p {
@@ -93,14 +120,14 @@ header {
 
 .cst-btn-rgt {
   border-radius: 0 10px 10px 0;
-  background-color: #ffc576;
+  background-color: #b89449;
   width: 50%;
   font-weight: 700;
   color: #f0f0f0;
 }
 
 .cst-btn-rgt:hover {
-  background-color: #f9b14d;
+  background-color: #b89449;
   color: #fff;
   cursor: pointer;
 }
@@ -146,7 +173,7 @@ header {
   color: rgb(123, 123, 123);
 }
 .search-item p {
-  color: #ffc576;
+  color: #b89449;
   font-size: 16px;
 }
 
@@ -161,7 +188,10 @@ header {
 /* FOOTER SECTION START */
 .main-footer h5 {
   padding: 20px 0;
-  background: black;
-  color: white;
+  background: rgba(205, 205, 205);
+  color: #b89449;
   text-align: center;
+  font-weight: 300;
+  bottom: 0;
+  width: 100%;
 }
