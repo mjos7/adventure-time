@@ -17,15 +17,10 @@ header {
 }
 
 .recent-search-nav {
-  color: rgb(205, 205, 205);
+  color: #fff;
   font-size: 20px;
   margin-right: 50px;
   font-weight: 200;
-}
-
-.recent-search-nav {
-  color: #fff;
-  /* text-transform: uppercase; */
   text-decoration: none;
   letter-spacing: 0.15em;
   display: inline-block;
