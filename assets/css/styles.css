@@ -108,6 +108,10 @@ header {
   width: 100%;
 }
 
+.date-input input {
+  width: 120%;
+}
+
 .cst-btn-cntr {
   border-radius: 0;
   width: 100%;

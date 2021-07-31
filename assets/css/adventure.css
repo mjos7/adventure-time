@@ -67,6 +67,14 @@ nav h2 {
   max-height: 350px;
 }
 
+.restaurant {
+  border-radius: 20px 0 0 0;
+}
+
+.event {
+  border-radius: 0 0 0 20px;
+}
+
 .restaurant h4,
 .event h4 {
   color: hsla(0, 0%, 76%, 1);

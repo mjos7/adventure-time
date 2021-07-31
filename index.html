@@ -6,6 +6,7 @@
     <title>Adventure Time</title>
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <link rel="stylesheet" href="./build/styles.css" />
+    
   </head>
   <body>
     <header>
@@ -31,12 +32,14 @@
           <br />
           
         </div>
-        <div class="search-input flex justify-between">
-          <div class="date-input cst-btn cst-btn-lft">Date</div>
+        <form class="search-input flex justify-between">
+          <input type="date" id="start" name="trip-start"
+       value="2021-08-01"
+       min="2021-08-01" max="2021-12-31" class="date-input cst-btn cst-btn-lft">
           <div class="time-input cst-btn cst-btn-cntr">Time</div>
           <div class="location-input cst-btn cst-btn-cntr">City</div>
           <button class="cst-btn cst-btn-rgt">Find my Adventure</button>
-        </div>
+        </form>
       </section>
       <!-- HERO END -->
     </header>
