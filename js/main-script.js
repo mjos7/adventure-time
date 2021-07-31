@@ -24,7 +24,7 @@ The events that are pick are dependednt on location, weather and time
 // ----------------------------------------------------------------------//git
 
 var ticketmasterData = {}
-var date = "2021-09-18";
+
 
 // these will include the indoor or outdoor choice in the value of the keyword i.e: music, sports, theater and more. 
 var outdoorChoice = [];
@@ -52,8 +52,14 @@ function weatherChoice(weather){
 
 // date variable will be embeded into the link but have to get it to work.
 
-// on click search fetces data. choice and hopefully start date can be passed without any issue. 
-    fetch(`https://app.ticketmaster.com/discovery/v2/events?&keyword=music&city=atlanta&apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0`)
+// on click search fetces data. choice and hopefully start date can be passed without any issue.
+
+    var startDate = ["2021-09-18"];
+    var endDate = ["2021-09-18"];
+    var choice = "comedy";
+    var city = "atlanta"
+
+    fetch(`https://app.ticketmaster.com/discovery/v2/events?&keyword=${choice}&localStartDate=${endDate}&localEndDateTime=${endDate}&city=${city}&apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0`)
     .then(response => {
         if(!response.ok || response.status === 404){
             // in this block can great custom modals for errors or and have conditions to display 
@@ -67,10 +73,14 @@ function weatherChoice(weather){
 
         console.log(data);
         console.log(data._embedded);
-        /*
-        if(data._emdedded === undefined ||  data._emdedded === null){
-            *display message that says something like no events available with this criteria*
+        
+        if(data._embedded === undefined){
+            console.log("no data");
+            console.log(data._embedded);
+            // *display message that says something like no events available with this criteria*
         }else{
+            console.log("valid data");
+
             var eventChoice = Math.floor(Math.random() * data._embedded.events.length);
             var event = data._embedded.events[eventChoice]
 
@@ -78,6 +88,13 @@ function weatherChoice(weather){
             ticketmasterData.url = event.url;
             ticketmasterData.img = event.images[0].url;
             ticketmasterData.name = event.name;
-        }
-        */
+            ticketmasterData.street = event._embedded.venues[0].address.line1;
+            ticketmasterData.city = event._embedded.venues[0].city.name;
+            ticketmasterData.country = event._embedded.venues[0].country.countryCode;
+            ticketmasterData.lat = event._embedded.venues[0].location.latitude;
+            ticketmasterData.long = event._embedded.venues[0].location.longitude;
+            console.log(ticketmasterData);
+        }        
     })
+
+    // in the same on click we will update the page with data and will be done with current html or it will be generated. 
