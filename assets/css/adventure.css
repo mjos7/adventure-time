@@ -251,18 +251,6 @@ address a {
 }
 
 @media screen and (max-width: 845px) {
-  /* .restaurant-image,
-  .event-image {
-    width: 50%;
-  }
-  .event-info,
-  .restaurant-info {
-    width: 50%;
-    max-width: 50%;
-  } */
-}
-
-@media screen and (max-width: 700px) {
   .restaurant-image {
     order: 1;
     margin-top: 0;
@@ -302,9 +290,13 @@ address a {
     margin-bottom: 30px;
     height: auto;
   }
+
   #event-link,
   #restaurant-link {
     width: 100%;
+  }
+  #event-image {
+    margin-bottom: 100px;
   }
 }
 
