@@ -51,6 +51,10 @@ nav h2 {
   letter-spacing: 0.15em;
 }
 
+#date {
+  font-weight: 600;
+}
+
 /* RESTAURANT/EVENTS SECTION START */
 .restaurant,
 .event {
@@ -114,6 +118,13 @@ nav h2 {
   border-radius: 0 15px 0 0;
   flex-grow: 1;
   width: 33%;
+  min-width: 300px;
+}
+
+.restaurant-info-icons {
+  line-height: 2em;
+  margin-bottom: 25px;
+  font-size: 13px;
 }
 
 .event-info {
@@ -194,15 +205,129 @@ address a {
 
 /* MEDIA QUERIES */
 
-/* @media screen and (max-width: 780px) {
-  .grid-wrapper {
-    display: grid;
-    gap: 20px;
-    grid-template-areas:
-      'header'
-      'nav'
-      'content'
-      'map'
-      'footer';
+@media screen and (max-width: 1400px) {
+  .restaurant-image img,
+  .event img {
+    max-width: 300px;
   }
-} */
+}
+
+@media screen and (max-width: 1250px) {
+  .restaurant img,
+  .event img {
+    max-width: 400px;
+    height: 250px;
+    width: 90%;
+    margin-bottom: 30px;
+  }
+
+  .restaurant,
+  .event {
+    height: auto;
+    max-height: none;
+    margin-right: 0;
+  }
+
+  .restaurant-info,
+  .event-info {
+    padding-left: 0;
+  }
+
+  map {
+    display: none;
+  }
+
+  .grid-wrapper {
+    display: unset;
+  }
+}
+
+@media screen and (max-width: 965px) {
+  .restaurant-image img,
+  .event img {
+    width: 90%;
+    border-radius: 15px;
+  }
+}
+
+@media screen and (max-width: 845px) {
+  /* .restaurant-image,
+  .event-image {
+    width: 50%;
+  }
+  .event-info,
+  .restaurant-info {
+    width: 50%;
+    max-width: 50%;
+  } */
+}
+
+@media screen and (max-width: 700px) {
+  .restaurant-image {
+    order: 1;
+    margin-top: 0;
+  }
+
+  .restaurant,
+  .event {
+    justify-content: center;
+  }
+  #restaurant-image,
+  #event-image,
+  .restaurant-info,
+  .event-info,
+  .restaurant-image,
+  .event-image {
+    width: 100%;
+    max-width: none;
+    justify-content: center;
+  }
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav img {
+    width: 70%;
+    margin: auto;
+  }
+  nav h2 {
+    font-size: 14px;
+    text-align: center;
+    margin: auto;
+  }
+
+  .restaurant-info,
+  .event-info {
+    margin-bottom: 30px;
+    height: auto;
+  }
+  #event-link,
+  #restaurant-link {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  nav {
+    flex-wrap: wrap;
+  }
+  nav h2 {
+    font-size: 12px;
+    text-align: center;
+    margin: auto;
+  }
+
+  main {
+    justify-content: center;
+  }
+
+  .restaurant-info,
+  .event-info {
+    padding: 0 10px;
+  }
+
+  #event-image {
+    margin-bottom: 100px;
+  }
+}
