@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./build/styles.css" />
     <!-- <link rel="stylesheet" href="./assets/css/styles.css" /> -->
     <link rel="stylesheet" href="assets/css/adventure.css" />
+    
   </head>
   <body class="grid-wrapper">
     <header class="main-head">
@@ -25,16 +26,18 @@
       <article class="content">
         <section class="restaurant">
           <div class="restaurant-image">
-            <img src="assets/img/ruths-chris-sm.jpg" alt="" />
+            <img src="assets/img/ruths-chris-sm.jpg" alt="" id="restaurant-photo"/>
           </div>
           <div class="restaurant-info">
             <h4>Restaurant</h4>
-            <h2>Ruth's Chris Steakhouse</h2>
+            <h2 id="restaurant-name">Ruth's Chris Steakhouse</h2>
+            <p id="restaurant-rating"></p>
+            <!--
             <p>
               Get the best steakhouse experience at Ruth's Chris Steak House in
               Marina del Rey...
-            </p>
-            <address>
+            </p>-->
+            <address id="restaurant-addr">
               <a
                 href="https://www.google.com/maps/place/Ruth's+Chris+Steak+House/@33.9866414,-118.444276,17z/data=!3m2!4b1!5s0x80c2ba87c55c1d8f:0x7edf0a3aebeb1140!4m5!3m4!1s0x80c2ba86349ecb83:0x27634e3d86541933!8m2!3d33.986637!4d-118.4420873"
               >
@@ -65,7 +68,7 @@
         </section>
       </article>
     </main>
-    <map class="map">
+    <map class="map" id="map">
       <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.2295566775183!2d-118.44427598478661!3d33.98663698062393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2ba86349ecb83%3A0x27634e3d86541933!2sRuth&#39;s%20Chris%20Steak%20House!5e0!3m2!1sen!2sca!4v1627598829850!5m2!1sen!2sca"
         style="border: 0"
@@ -76,5 +79,13 @@
     <footer class="main-footer">
       <h5>Made with ❤️&nbsp by Team Awesome</h5>
     </footer>
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5kLNMIAqrcOjplkf0qJY0gQpbj-OK37U&libraries=places&v=weekly"
+      async
+    ></script>
+    <script src="https://kit.fontawesome.com/226c7634c5.js" crossorigin="anonymous"></script>
+  
+    <script src="assets/js/script.js"></script>
   </body>
 </html>
