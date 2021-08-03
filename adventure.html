@@ -9,6 +9,17 @@
     <!-- <link rel="stylesheet" href="./assets/css/styles.css" /> -->
     <link rel="stylesheet" href="assets/css/adventure.css" />
     <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5kLNMIAqrcOjplkf0qJY0gQpbj-OK37U&libraries=places"
+      async
+    ></script>
+<!--
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIbLMHh6Zc5rGRZOVPJg5iAcOpihA9w0U&callback=initMap"
+    ></script>
+    -->
+    <script
       src="https://kit.fontawesome.com/c663089620.js"
       crossorigin="anonymous"
     ></script>
@@ -29,7 +40,7 @@
       <article class="content">
         <section class="restaurant">
           <div class="restaurant-image">
-            <img id="restaurant-image" src="assets/img/ruths-chris-sm.jpg" />
+            <img id="restaurant-image" src="assets/img/ruths-chris-sm.jpg"/>
           </div>
           <div class="restaurant-info">
             <h4>Restaurant</h4>
@@ -38,17 +49,17 @@
               <div class="rating-icon inline">
                 <i class="fas fa-star"></i>
               </div>
-              <div class="star-rating inline">4.7</div>
+              <div class="star-rating inline" id="restaurant-rating">4.7</div>
 
               <div>
                 <div class="phone-icon inline">
                   <i class="fas fa-phone-alt"></i>
                 </div>
-                <div class="star-rating inline">123-456-7890</div>
+                <div class="star-rating inline" id="phone-num">123-456-7890</div>
               </div>
             </div>
 
-            <address>
+            <address id="restaurant-addr">
               <a
                 href="https://www.google.com/maps/place/Ruth's+Chris+Steak+House/@33.9866414,-118.444276,17z/data=!3m2!4b1!5s0x80c2ba87c55c1d8f:0x7edf0a3aebeb1140!4m5!3m4!1s0x80c2ba86349ecb83:0x27634e3d86541933!8m2!3d33.986637!4d-118.4420873"
               >
@@ -80,16 +91,13 @@
       </article>
     </main>
     <div id="map"></div>
-    <script type="text/javascript" src="./assets/js/map.js"></script>
-    <script
-      async
-      defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIbLMHh6Zc5rGRZOVPJg5iAcOpihA9w0U&callback=initMap"
-    ></script>
     <footer class="main-footer">
       <h5>Made with ❤️&nbsp by Team Awesome</h5>
     </footer>
+
+    <script type="text/javascript" src="./assets/js/map.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script src="./js/main-script.js"></script>
+    <script src="./assets/js/main-script.js"></script>
+    <script src="./assets/js/restaurant.js"></script>
   </body>
 </html>
