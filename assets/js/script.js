@@ -1,5 +1,4 @@
 // recent search boxes
-
 var newRecentDate = document.querySelector('#date');
 var newRecentTime = document.querySelector('#time');
 var newRecentCity = document.querySelector('#location');
@@ -26,7 +25,6 @@ var loadHistory = function () {
 
 // Search weather using search history buttons
 var buttonClickHandler = function (event) {
-  var tempArray = JSON.parse(localStorage.getItem('searches')) || [];
   var cityname = event.target.getAttribute('');
   if (cityname) {
     getWeatherInfo(cityname);
@@ -44,7 +42,7 @@ searchBtn.addEventListener('click', function (event) {
     city: recentCity,
   };
   console.log(recentSearchObj);
-  localStorage.setItem('searches', JSON.stringify(tempArray));
+  localStorage.setItem('searches', JSON.stringify(recentSearchObj));
   recentSearchArray.push(recentSearchObj);
 
   //   // clear old content
