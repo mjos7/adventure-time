@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 /* NAVIGATION START */
 
 header {
@@ -102,6 +103,31 @@ header {
   text-align: center;
   transition: 0.5s;
 }
+
+#city-input{
+  background-color: hsla(36, 100%, 90%, 0.2);
+  border: none;
+  padding: 5px;
+}
+
+#city-input:focus{
+  background-color: hsla(36, 100%, 90%, 0.2);
+  outline: none;
+}
+
+::placeholder { 
+  color: white;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: white;
+}
+
+::-ms-input-placeholder {
+  color: white;
+}
+
 
 .cst-btn-lft {
   border-radius: 10px 0 0 10px;

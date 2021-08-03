@@ -1,18 +1,4 @@
 <html lang="en">
-<<<<<<< HEAD
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    hello wor
-
-    <script src="./js/main-script.js"></script>
-</body>
-</html>
-=======
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -51,8 +37,10 @@
        value="2021-08-01"
        min="2021-08-01" max="2021-12-31" class="date-input cst-btn cst-btn-lft">
           <div class="time-input cst-btn cst-btn-cntr">Time</div>
-          <div class="location-input cst-btn cst-btn-cntr">City</div>
-          <button class="cst-btn cst-btn-rgt">Find my Adventure</button>
+          <div class="location-input cst-btn cst-btn-cntr">
+              <input type="text" name="city-input" id="city-input" placeholder="City" required>
+          </div>
+          <button id="search-button" type="button" class="cst-btn cst-btn-rgt">Find my Adventure</button>
         </form>
       </section>
       <!-- HERO END -->
@@ -85,6 +73,7 @@
     <footer class="main-footer">
       <h5>Made with ❤️&nbsp  by Team Awesome</h5>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="./js/main-script.js"></script>
   </body>
 </html>
->>>>>>> 52dde3440f4d05b971dacfd3b7de4a942f2d89bd
