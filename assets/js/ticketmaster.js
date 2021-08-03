@@ -4,7 +4,7 @@ var ticketmasterData = {}
 var events = ["comedy","theater","concert","sports","festival"];
 
 
-function weatherChoice(events){
+function eventChoice(events){
     
     let choice;
 
@@ -19,7 +19,7 @@ function weatherChoice(events){
 //     var endDate = $("#start").val();
 //     var city = $("#city-input").val();
 
-        fetch(`https://app.ticketmaster.com/discovery/v2/events?&keyword=${weatherChoice(data.weather.main)}&localStartDate=${startDate}&localEndDateTime=${endDate}&city=${city}&apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0`)
+        fetch(`https://app.ticketmaster.com/discovery/v2/events?&keyword=${eventChoice(events)}&localStartDate=${startDate}&localEndDateTime=${endDate}&city=${city}&apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0`)
         .then(response => {
             if(!response.ok || response.status === 404){
                 // in this block can great custom modals for errors or and have conditions to display 
