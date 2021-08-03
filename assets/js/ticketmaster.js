@@ -1,23 +1,14 @@
 var ticketmasterData = {}
 
 // these will include the indoor or outdoor choice in the value of the keyword i.e: music, sports, theater and more. 
-var outdoorChoice = ["comedy","theater"];
-var indorChoice = ["concert","sports","festival"];
+var events = ["comedy","theater","concert","sports","festival"];
 
-function weatherChoice(weather){
+function eventChoice(events){
     
     let choice;
 
-    if(weather === "sunny" || weather === "clear"){
-        var randomChoice = Math.floor(Math.random() * outdoorChoice.length);
-        choice = outdoor[randomChoice];
-    }else if(weather === "rain" || weather === "snow"){
-        var randomChoice = Math.floor(Math.random() * indorChoice.length);
-        choice = indorChoice[randomChoice];
-    }else{
-        var randomChoice = Math.floor(Math.random() * indorChoice.length);
-        choice = indorChoice[randomChoice];
-    }
+    Math.floor(Math.random() * events.length);
+    choice = events[1];
 
     return choice;
 }
@@ -31,10 +22,7 @@ function weatherChoice(weather){
     console.log(endDate);
     console.log(city);
 
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f64913ef90b44b625b14719274c93401`)
-    .then(response => response.json())
-    .then(data => {
-        fetch(`https://app.ticketmaster.com/discovery/v2/events?&keyword=${weatherChoice(data.weather.main)}&localStartDate=${startDate}&localEndDateTime=${endDate}&city=${city}&apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0`)
+        fetch(`https://app.ticketmaster.com/discovery/v2/events?&keyword=${eventChoice(events)}&localStartDate=${startDate}&localEndDateTime=${endDate}&city=${city}&apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0`)
         .then(response => {
             if(!response.ok || response.status === 404){
                 // in this block can great custom modals for errors or and have conditions to display 
@@ -71,4 +59,3 @@ function weatherChoice(weather){
                 console.log(ticketmasterData);
             }       
         });
-    });
