@@ -106,6 +106,7 @@ nav {
   transition: 0.5s;
 }
 
+<<<<<<< HEAD
 #city-input{
   background-color: hsla(36, 100%, 90%, 0.2);
   border: none;
@@ -131,6 +132,16 @@ nav {
 }
 
 
+=======
+#time {
+  color: black;
+}
+
+#location{
+  color: black;
+}
+
+>>>>>>> main
 .cst-btn-lft {
   border-radius: 10px 0 0 10px;
   width: 100%;
