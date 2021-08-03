@@ -105,6 +105,14 @@ nav {
   transition: 0.5s;
 }
 
+#time {
+  color: black;
+}
+
+#location{
+  color: black;
+}
+
 .cst-btn-lft {
   border-radius: 10px 0 0 10px;
   width: 100%;
