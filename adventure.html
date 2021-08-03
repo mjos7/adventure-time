@@ -1,62 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Adventure Results</title>
-    <!-- <link rel="stylesheet" href="./build/styles.css" /> -->
-    <!-- <link rel="stylesheet" href="./assets/css/styles.css" /> -->
-    <link rel="stylesheet" href="assets/css/adventure.css" />
-  </head>
-  <body>
-    <header>
-      <nav class="flex justify-between items-center">
-        <a href="#"
-          ><img
-            class="max-w-xs p-8"
-            src="assets/img/adventure-time-logo-sm.png"
-            alt="Logo of Adventure Time"
-        /></a>
-        <a href="" class=""></a>
-      </nav>
-    </header>
-    <main>
-      <div class="restaurant">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adventure Results</title>
+  <link rel="stylesheet" href="../adventure-time/build/styles.css" />
+  <!-- <link rel="stylesheet" href="./assets/css/styles.css" /> -->
+  <link rel="stylesheet" href="../adventure-time/assets/css/adventure.css" />
+  <script src="https://kit.fontawesome.com/c663089620.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="grid-wrapper">
+  <header class="main-head">
+    <nav class="main-nav">
+      <a href= index.html><img class="max-w-xs p-8" src="../adventure-time/assets/img/adventure-time-logo.png"
+          alt="Logo of Adventure Time" /></a>
+      <h2>Your Adventure for <span id="date">Saturday, Aug 7</span></h2>
+    </nav>
+  </header>
+  <main>
+    <article class="content">
+      <section class="restaurant">
         <div class="restaurant-image">
-          <h2>Dinner & Event on Sat, Aug 7</h2>
-          <img src="assets/img/ruths-chris-sm.jpg" alt="" />
+          <img id="restaurant-image" src="../adventure-time/assets/img/ruths-chris-sm.jpg" />
         </div>
         <div class="restaurant-info">
-          <h3>Restaurant</h3>
-          <p>Ruth's Chris Steakhouse</p>
-          <p>
-            Get the best steakhouse experience at Ruth's Chris Steak House in
-            Marina del Rey...
-          </p>
+          <h4>Restaurant</h4>
+          <h2 id="restaurant-title">Ruth's Chris Steakhouse</h2>
+          <div class="restaurant-info-icons">
+            <div class="rating-icon inline">
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="star-rating inline">4.7</div>
+
+            <div>
+              <div class="phone-icon inline">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="star-rating inline">123-456-7890</div>
+            </div>
+          </div>
+
           <address>
-            13455 Maxella Ave #230,<br />
-            Marina Del ray, CA 90292
+            <a
+              href="https://www.google.com/maps/place/Ruth's+Chris+Steak+House/@33.9866414,-118.444276,17z/data=!3m2!4b1!5s0x80c2ba87c55c1d8f:0x7edf0a3aebeb1140!4m5!3m4!1s0x80c2ba86349ecb83:0x27634e3d86541933!8m2!3d33.986637!4d-118.4420873">
+              13455 Maxella Ave #230, Marina Del ray, CA 90292</a>
           </address>
-          <button>Reserve a Table</button>
+          <button id="restaurant-link">Reserve Table</button>
         </div>
-      </div>
-      <div class="event">
+      </section>
+      <section class="event">
         <div class="event-info">
-          <h3>Event</h3>
-          <p>Treehouse Rooftop Lounge</p>
-          <p>
-            It's finally time to dance the night away at Treehouse Rooftop! Come
-            enjoy the best Latin, R&B, & HipHop music!
+          <h4>Event</h4>
+          <h2 id="event-title">Treehouse Rooftop Lounge</h2>
+          <p id="event-description">
+            It's finally time to dance the night away at Treehouse Rooftop!
+            Come enjoy the best Latin, R&B, & HipHop music!
           </p>
-          <address>
-            686 North Spring Street<br />
-            Los Angeles, CA 90012
+          <address id="event-address">
+            <a
+              href="https://www.google.com/maps/place/Treehouse/@34.05955,-118.2399147,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2c65b29455ad9:0x100690ebd8e3e872!8m2!3d34.0596031!4d-118.2378731">
+              686 North Spring Street Los Angeles, CA 90012</a>
           </address>
-          <button>Reserve Tickets</button>
+          <button id="event-link">Purchase Tickets</button>
         </div>
-        <img src="assets/img/tree-house-hero-1.jpeg" />
-      </div>
-    </main>
-  </body>
+        <img id="event-image" src="../adventure-time/assets/img/tree-house-hero-1.jpeg" />
+      </section>
+    </article>
+  </main>
+  <div id="map"></div>
+  <script type="text/javascript" src="../adventure-time/assets/js/map.js"></script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIbLMHh6Zc5rGRZOVPJg5iAcOpihA9w0U&callback=initMap"></script>
+  <!-- <map class="map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.2295566775183!2d-118.44427598478661!3d33.98663698062393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2ba86349ecb83%3A0x27634e3d86541933!2sRuth&#39;s%20Chris%20Steak%20House!5e0!3m2!1sen!2sca!4v1627598829850!5m2!1sen!2sca"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+      ></iframe>
+    </map> -->
+  <footer class="main-footer">
+    <h5>Made with ❤️&nbsp by Team Awesome</h5>
+  </footer>
+</body>
+
 </html>
