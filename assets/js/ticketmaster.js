@@ -1,28 +1,3 @@
-/* 
-Application is designed to take in user input and using third
-party API's search for local events and display that to the user
-The events that are pick are dependednt on location, weather and time
-*/ 
-
-// TODO: set golbal variables for the elements in the HTML
-
-// TODO: set variables to store data of the fetches. Might want
-// to use objects
-
-
-
-// TODO:  function insideEvent(weather)- this function will be responsible for 
-// checking the data and decideing whether or not to choose event
-// to be inside or outside. it will take in weather data and return
-// true or false true being the event should be inside.
-
-// NOTE: Probably wont need many functions unless code becuase redundent.
-
-// TODO: create event listner for the submit button that will
-// will run most of the code. 
-
-// ----------------------------------------------------------------------//
-
 var ticketmasterData = {}
 
 // these will include the indoor or outdoor choice in the value of the keyword i.e: music, sports, theater and more. 
@@ -48,7 +23,7 @@ function weatherChoice(weather){
 }
 
 // on click search fetces data. choice and hopefully start date can be passed without any issue.
-var startDate = $("#start").val();
+    var startDate = $("#start").val();
     var endDate = $("#start").val();
     var city = $("#city-input").val();
 
