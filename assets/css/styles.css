@@ -109,7 +109,7 @@ nav {
   color: black;
 }
 
-#location{
+#location {
   color: black;
 }
 
@@ -133,6 +133,10 @@ nav {
   width: 50%;
   font-weight: 700;
   color: #f0f0f0;
+}
+
+input#location {
+  background-color: #ffffff00;
 }
 
 .cst-btn-rgt:hover {
