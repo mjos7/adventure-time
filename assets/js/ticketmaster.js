@@ -1,4 +1,5 @@
 var ticketmasterData = {}
+var dt = luxon.DateTime;
 
 // these will include the indoor or outdoor choice in the value of the keyword i.e: music, sports, theater and more. 
 var events = ["comedy","theater","concert","sports","festival"];
@@ -14,8 +15,9 @@ function eventChoice(events){
     return choice;
 }
 
+console.log(startDate + ", " + endDate);
 // on click search fetces data. choice and hopefully start date can be passed without any issue.
-fetch(`https://app.ticketmaster.com/discovery/v2/events?&keyword=${eventChoice(events)}&localStartDate=${startDate}&localEndDateTime=${endDate}&city=${city}&apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0`)
+fetch(`https://app.ticketmaster.com/discovery/v2/events?&keyword=${eventChoice(events)}&localStartDate=${startDate}&city=${city}&apikey=xEi5eJQO6xisLlzuVDPj1trwjnDMatBA`)
 .then(response => {
     if(!response.ok || response.status === 404){
         // in this block can great custom modals for errors or and have conditions to display 
@@ -26,7 +28,6 @@ fetch(`https://app.ticketmaster.com/discovery/v2/events?&keyword=${eventChoice(e
     }
     })
     .then(data => {
-            console.log("ticketmaster results recieved")
         if(data._embedded === undefined){
             // *display message that says something like no events available with this criteria*
             console.log("No events in search");
@@ -35,6 +36,8 @@ fetch(`https://app.ticketmaster.com/discovery/v2/events?&keyword=${eventChoice(e
 
             var eventChoice = Math.floor(Math.random() * data._embedded.events.length);
             var event = data._embedded.events[eventChoice]
+
+            console.log(event);
 
             ticketmasterData.date = event.dates.start.localDate;
             ticketmasterData.url = event.url;
@@ -45,15 +48,14 @@ fetch(`https://app.ticketmaster.com/discovery/v2/events?&keyword=${eventChoice(e
             ticketmasterData.state = event._embedded.venues[0].state.stateCode;
             ticketmasterData.lat = event._embedded.venues[0].location.latitude;
             ticketmasterData.long = event._embedded.venues[0].location.longitude;
+            ticketmasterData.address = `${ticketmasterData.street} ${ticketmasterData.city}, ${ticketmasterData.state}`
 
             $("#event-title").text(ticketmasterData.name);
-            $("#event-address h2").text(`${ticketmasterData.street} ${ticketmasterData.city}, ${ticketmasterData.state}`);
+            $("#event-address h2").text(ticketmasterData.address);
             $("#event-link a").attr("href", ticketmasterData.url);
             $("#event-image").attr("src", ticketmasterData.img);
-            $("#date").text("")
+            $("#date").text(dt.fromISO(ticketmasterData.date).toFormat("DDDD"));
           
             search(ticketmasterData.lat, ticketmasterData.long);
-            var resturantLoc = getPlace();
-            console.log(resturantLoc)
     }       
 });
