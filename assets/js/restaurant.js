@@ -6,14 +6,25 @@ let restaurantLat = 33.985981;
 let restaurantLon = -118.442772;
 var map;
 var service;
+var restaurant;
 var restaurantEl = document.getElementById('restaurant-title');
 var restAddrEl = document.getElementById('restaurant-addr');
 var restaurantImageEl = document.getElementById('restaurant-image');
 var restaurantRatingEl = document.getElementById('restaurant-rating');
 var phoneNumEl = document.getElementById('phone-num');
 
+function getPlace(){
+    console.log("place sent")
+    return restaurant;
+}
+
+async function setplace(place){
+    console.log("place set")
+    restaurant = await place;
+}
+
 function search(lat, lng) {
-    console.log(lat + ", " + lng);
+    
   var searchLocation = new google.maps.LatLng(lat, lng);
 
   map = new google.maps.Map(document.getElementById('map'));
@@ -29,7 +40,8 @@ function search(lat, lng) {
 }
 
 // chooses a random restaurant from the array returned
-function callback(results, status) {
+async function callback(results, status) {
+    console.log("restaurant results recieved");
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     var index = Math.floor(Math.random() * results.length);
 
@@ -37,8 +49,9 @@ function callback(results, status) {
 
     // Checks business is open
     if (randomPlace.business_status === 'OPERATIONAL') {
-      createMarker(randomPlace);
+    //   createMarker(randomPlace);
       loadInfo(randomPlace);
+      setplace({lat: randomPlace.geometry.location.lat(), long: randomPlace.geometry.location.lat()});
     } else {
       callback(results, status);
     }

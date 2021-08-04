@@ -4,6 +4,7 @@ var historyButtonsEl = document.querySelector('#search-item');
 var historyCardEl = document.querySelector('#recent-searches');
 var trashEl = document.querySelector('#trash');
 var searchHistoryArray = [];
+
 var formSubmitHandler = function (event) {
   event.preventDefault();
   // get city name value from input element
@@ -50,6 +51,7 @@ var clearHistory = function (event) {
   localStorage.removeItem('weatherSearch');
   historyCardEl.setAttribute('style', 'display: none');
 };
+console.log(cityFormEl);
 cityFormEl.addEventListener('submit', formSubmitHandler);
 historyButtonsEl.addEventListener('click', buttonClickHandler);
 trashEl.addEventListener('click', clearHistory);

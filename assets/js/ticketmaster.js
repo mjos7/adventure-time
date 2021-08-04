@@ -2,8 +2,7 @@ var ticketmasterData = {}
 
 // these will include the indoor or outdoor choice in the value of the keyword i.e: music, sports, theater and more. 
 var events = ["comedy","theater","concert","sports","festival"];
-var city = $("#location").text();
-console.log(city);
+var city = "atlanta"
 
 function eventChoice(events){
     
@@ -27,7 +26,7 @@ fetch(`https://app.ticketmaster.com/discovery/v2/events?&keyword=${eventChoice(e
     }
     })
     .then(data => {
-            
+            console.log("ticketmaster results recieved")
         if(data._embedded === undefined){
             // *display message that says something like no events available with this criteria*
             console.log("No events in search");
@@ -43,7 +42,7 @@ fetch(`https://app.ticketmaster.com/discovery/v2/events?&keyword=${eventChoice(e
             ticketmasterData.name = event.name;
             ticketmasterData.street = event._embedded.venues[0].address.line1;
             ticketmasterData.city = event._embedded.venues[0].city.name;
-            ticketmasterData.country = event._embedded.venues[0].country.countryCode;
+            ticketmasterData.state = event._embedded.venues[0].state.stateCode;
             ticketmasterData.lat = event._embedded.venues[0].location.latitude;
             ticketmasterData.long = event._embedded.venues[0].location.longitude;
 
@@ -51,8 +50,10 @@ fetch(`https://app.ticketmaster.com/discovery/v2/events?&keyword=${eventChoice(e
             $("#event-address h2").text(`${ticketmasterData.street} ${ticketmasterData.city}, ${ticketmasterData.state}`);
             $("#event-link a").attr("href", ticketmasterData.url);
             $("#event-image").attr("src", ticketmasterData.img);
+            $("#date").text("")
           
-            console.log(ticketmasterData.lat+ ", " + ticketmasterData.long)
             search(ticketmasterData.lat, ticketmasterData.long);
+            var resturantLoc = getPlace();
+            console.log(resturantLoc)
     }       
 });
