@@ -1,6 +1,6 @@
 let centerLat = (restaurantLat + eventLat) / 2;
 let centerLon = (restaurantLon + eventLon) / 2;
-
+var city = $("#location").text();
 function initMap() {
   var center = { lat: centerLat, lng: centerLon };
   var locations = [
