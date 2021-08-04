@@ -1,10 +1,10 @@
 // RESTAURANT VARIABLES
-let restaurantName = "Ruths' Chris Steak house";
-let restaurantAddress = '13455 Maxella Ave #230, Marina Del ray, CA 90292';
-let restaurantLink = `https://www.google.com/maps/place/Ruth's+Chris+Steak+House/@33.9866414,-118.444276,17z/data=!3m2!4b1!5s0x80c2ba87c55c1d8f:0x7edf0a3aebeb1140!4m5!3m4!1s0x80c2ba86349ecb83:0x27634e3d86541933!8m2!3d33.986637!4d-118.4420873`;
-let restaurantLat = 33.985981;
-let restaurantLon = -118.442772;
-var map;
+// let restaurantName = "Ruths' Chris Steak house";
+// let restaurantAddress = '13455 Maxella Ave #230, Marina Del ray, CA 90292';
+// let restaurantLink = `https://www.google.com/maps/place/Ruth's+Chris+Steak+House/@33.9866414,-118.444276,17z/data=!3m2!4b1!5s0x80c2ba87c55c1d8f:0x7edf0a3aebeb1140!4m5!3m4!1s0x80c2ba86349ecb83:0x27634e3d86541933!8m2!3d33.986637!4d-118.4420873`;
+// let restaurantLat = 33.985981;
+// let restaurantLon = -118.442772;
+// var map;
 var service;
 var restaurantLoc;
 var eventLoc;
