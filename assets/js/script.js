@@ -1,76 +1,56 @@
-// recent search boxes
-var newRecentDate = document.querySelector('#date');
-var newRecentTime = document.querySelector('#time');
-var newRecentCity = document.querySelector('#location');
-var searchItemEl = document.querySelector('#search-item');
-var searchItemCard = document.querySelector('#recent-searches');
-var searchBtn = document.getElementById('search');
-var recentSearchArray = JSON.parse(localStorage.getItem('searches')) || [];
-
+var cityFormEl = document.querySelector('#city');
+var cityNameInputEl = document.querySelector('#location');
+var historyButtonsEl = document.querySelector('#search-item');
+var historyCardEl = document.querySelector('#recent-searches');
+var trashEl = document.querySelector('#trash');
+var searchHistoryArray = [];
+var formSubmitHandler = function (event) {
+  event.preventDefault();
+  // get city name value from input element
+  var cityname = cityNameInputEl.value.trim();
+  // Set city name in local storage and generate history buttons
+  if (cityname) {
+    searchHistoryArray.push(cityname);
+    localStorage.setItem('citySearch', JSON.stringify(searchHistoryArray));
+    var searchHistoryEl = document.createElement('button');
+    searchHistoryEl.className = 'btn';
+    searchHistoryEl.setAttribute('data-city', cityname);
+    searchHistoryEl.innerHTML = cityname;
+    historyButtonsEl.appendChild(searchHistoryEl);
+    historyCardEl.removeAttribute('style');
+    cityNameInputEl.value = '';
+  } else {
+    alert('Please enter a City name');
+  }
+};
+// Load any past city searches
 var loadHistory = function () {
-  searchArray = JSON.parse(localStorage.getitem(''));
-
+  searchArray = JSON.parse(localStorage.getItem('citySearch'));
   if (searchArray) {
-    searchArray = JSON.parse(localStorage.getitem(''));
+    searchHistoryArray = JSON.parse(localStorage.getItem('citySearch'));
     for (let i = 0; i < searchArray.length; i++) {
-      var newRecentSearch = document.createElement('button');
-      newRecentSearch.className = 'search-item';
-      newRecentSearch.setAttribute('', searchArray[i]);
-      newRecentSearch.innerHTML = searchArray[i];
-      searchItemEl.appendChild(newRecentSearch);
-      searchItemCard.removeAttribute('style');
+      var searchHistoryEl = document.createElement('button');
+      searchHistoryEl.className = 'btn';
+      searchHistoryEl.setAttribute('data-city', searchArray[i]);
+      searchHistoryEl.innerHTML = searchArray[i];
+      historyButtonsEl.appendChild(searchHistoryEl);
+      historyCardEl.removeAttribute('style');
     }
   }
 };
-
-// Search weather using search history buttons
+// Search using search history buttons
 var buttonClickHandler = function (event) {
-  var cityname = event.target.getAttribute('');
+  var cityname = event.target.getAttribute('data-city');
   if (cityname) {
-    getWeatherInfo(cityname);
+    formSubmitHandler(cityname);
   }
 };
-
-searchBtn.addEventListener('click', function (event) {
-  event.preventDefault();
-
-  var recentDate = newRecentDate.value;
-  var recentCity = newRecentCity.value;
-
-  var recentSearchObj = {
-    date: recentDate,
-    city: recentCity,
-  };
-  console.log(recentSearchObj);
-  localStorage.setItem('searches', JSON.stringify(recentSearchObj));
-  recentSearchArray.push(recentSearchObj);
-
-  //   // clear old content
-  //   $(document).ready(function () {
-  //     $(newRecentCity).val('');
-  //   });
-});
-
-// Mark's old code
-
-// When user inputs City and submits
-// $('#search-form').submit(function (event) {
-//   event.preventDefault();
-//   var city = searchBarEl.value.trim();
-//   if (city == '') {
-//     alert('Please enter a city');
-//     return;
-//   } else {
-//     $('html, body').animate(
-//       {
-//         scrollTop: $('#city-name').offset().top - 70,
-//       },
-//       500
-//     );
-//     startWeather(city);
-//   }
-//   // clear old content
-//   $(document).ready(function () {
-//     $(searchBarEl).val('');
-//   });
-// });
+// Clear Search History
+var clearHistory = function (event) {
+  localStorage.removeItem('weatherSearch');
+  historyCardEl.setAttribute('style', 'display: none');
+};
+cityFormEl.addEventListener('submit', formSubmitHandler);
+historyButtonsEl.addEventListener('click', buttonClickHandler);
+trashEl.addEventListener('click', clearHistory);
+loadHistory();
