@@ -13,6 +13,7 @@ var restaurantRatingEl = document.getElementById('restaurant-rating');
 var phoneNumEl = document.getElementById('phone-num');
 
 function search(lat, lng) {
+    console.log(lat + ", " + lng);
   var searchLocation = new google.maps.LatLng(lat, lng);
 
   map = new google.maps.Map(document.getElementById('map'));
@@ -92,4 +93,3 @@ function createMarker(place) {
 }
 
 // search for restaurant using event coordinates
-search(53.33169309496362, -6.274566650390625);

@@ -1,14 +1,10 @@
 // EVENT VARIABLES
-let eventName = 'Treehouse Rooftop Lounge';
-let eventAddress = '686 North Spring Street Los Angeles, CA 90012';
-let eventLink = `https://www.google.com/maps/place/Treehouse/@34.05955,-118.2399147,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2c65b29455ad9:0x100690ebd8e3e872!8m2!3d34.0596031!4d-118.2378731`;
-let eventLat = 34.05953;
-let eventLon = -118.23772;
-var ticketmasterData = {};
 var date = document.getElementById('date');
 var outdoorChoice = [];
 var indorChoice = [];
 var ticketmasterData = {};
+
+console.log(city)
 
 // these will include the indoor or outdoor choice in the value of the keyword i.e: music, sports, theater and more.
 var eventsCategory = ['comedy', 'theater', 'concert', 'sports', 'festival'];
@@ -30,7 +26,7 @@ function eventChoice(events) {
 fetch(
   `https://app.ticketmaster.com/discovery/v2/events?&keyword=${eventChoice(
     eventsCategory
-  )}&localStartDate=${startDate}&localEndDateTime=${endDate}&city=${city}&apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0`
+  )}&localStartDate=${date}&localEndDateTime=${date}&city=${city}&apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0`
 )
   .then(response => {
     if (!response.ok || response.status === 404) {
@@ -42,6 +38,7 @@ fetch(
     }
   })
   .then(data => {
+      console.log(data)
     if (data._embedded === undefined) {
       // *display message that says something like no events available with this criteria*
     } else {
@@ -59,11 +56,13 @@ fetch(
       ticketmasterData.state = event._embedded.venues[0].state.stateCode;
       ticketmasterData.lat = event._embedded.venues[0].location.latitude;
       ticketmasterData.long = event._embedded.venues[0].location.longitude;
-      let eventName = ticketmasterData.name;
-      let eventAddress = `${ticketmasterData.street} ${ticketmasterData.city}, ${ticketmasterData.state}`;
-      //   let eventAddress = '686 North Spring Street Los Angeles, CA 90012';
-      let eventLink = `https://www.google.com/maps/place/Treehouse/@34.05955,-118.2399147,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2c65b29455ad9:0x100690ebd8e3e872!8m2!3d34.0596031!4d-118.2378731`;
-      let eventLat = 34.05953;
-      let eventLon = -118.23772;
+
+      $("#event-title").text(ticketmasterData.name);
+      $("#event-address h2").text(`${ticketmasterData.street} ${ticketmasterData.city}, ${ticketmasterData.state}`);
+      $("#event-link a").attr("href", ticketmasterData.url);
+      $("#event-image").attr("src", ticketmasterData.img);
+
+      console.log(ticketmasterData.lat+ ", " + ticketmasterData.long)
+      search(ticketmasterData.lat, ticketmasterData.long);
     }
   });
