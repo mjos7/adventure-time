@@ -1,26 +1,27 @@
 var date = $("#date").val();
-var city = $("#location").val();
-var recentSearchesEl = $("#recent-searches");
-var searchHistoryArray = [] || JSON.parse(localStorage.getItem("citySearch"));
+var recentSearchesEl = $(".recent-searches");
+var searchBtnEl = $("#search");
+
+var searchHistoryArray = JSON.parse(localStorage.getItem("citySearch")) || [];
 
 
-var formSubmitHandler = function (event) {
+function formSubmitHandler(){
   
   event.preventDefault();
 
   // get city name value from input element
-  console.log(city);
+  var city = $("#location").val();
 
   // Set city name in local storage and generate history buttons
-  if (cityname) {
-    if(searchHistoryArray.length <= 5){
-      searchHistoryArray.push({name: city,date: date});
+  if (city) {
+    if(searchHistoryArray.length <= 7){
+      searchHistoryArray.push({city: city,date: date});
     }else if(searchHistoryArray.length > 5){
       searchHistoryArray.pop();
-      searchHistoryArray.splice(0,0, {name: city,date: date})
+      searchHistoryArray.splice(0,0, {city: city,date: date})
     }
 
-    sessionStorage.setItem("search",JSON.stringify({name: city,date: date}))
+    sessionStorage.setItem("search",JSON.stringify({city: city,date: date}))
     // var searchHistoryEl = document.createElement('button');
     // searchHistoryEl.className = 'btn';
     // searchHistoryEl.setAttribute('data-city', cityname);
@@ -28,23 +29,29 @@ var formSubmitHandler = function (event) {
     // historyButtonsEl.appendChild(searchHistoryEl);
     // historyCardEl.removeAttribute('style');
 
-    cityNameInputEl.value = '';
+    // cityNameInputEl.value = '';
   } 
   localStorage.setItem("citySearch",JSON.stringify(searchHistoryArray));
-  // location.href = "./adventure.html";
+  location.href = "./adventure.html";
 };
 
 
 // Load any past city searches
-var loadHistory = function () {
-    for (let i = searchHistoryArray.length + 1; searchHistoryArray.length > 0; i--) {
-      var searchItemEl = $("<div>").attr("class","search-item");
-      var searchLocEl = $("<h4>").text(city);
-      var searchDateEl = $("<p>").text(date);
+function loadHistory(){
 
-      searchItemEl.append(searchLocEl);
-      searchItemEl.append(searchDateEl);
-      recentSearchesEl.append(searchItemEl);
+  console.log("load running");
+
+
+  for (var i = searchHistoryArray.length - 1; i >= 0; i--) {
+    console.log(searchHistoryArray[i])
+    var searchItemEl = $("<div>").attr("class","search-item");
+    searchItemEl.attr("id", i);
+    var searchLocEl = $("<h4>").text(searchHistoryArray[i].city);
+    var searchDateEl = $("<p>").text(searchHistoryArray[i].date);
+
+    searchItemEl.append(searchLocEl);
+    searchItemEl.append(searchDateEl);
+    recentSearchesEl.append(searchItemEl);
 
       // var searchHistoryEl = document.createElement('button');
       // searchHistoryEl.className = 'btn';
@@ -52,8 +59,8 @@ var loadHistory = function () {
       // searchHistoryEl.innerHTML = searchArray[i];
       // historyButtonsEl.appendChild(searchHistoryEl);
       // historyCardEl.removeAttribute('style');
-
-    }
+    location.reload  
+  }
 };
 // Search using search history buttons
 // var buttonClickHandler = function (event) {
@@ -68,5 +75,10 @@ var loadHistory = function () {
 //   historyCardEl.setAttribute('style', 'display: none');
 // };
 loadHistory();
-recentSearchesEl.on("click", formSubmitHandler);
-
+searchBtnEl.on("click", formSubmitHandler);
+$(".search-item").on("click", function(event){
+  event.stopPropagation();
+  var element = $(this).attr('id');
+  sessionStorage.setItem("search",JSON.stringify({city: searchHistoryArray[element].city,date: searchHistoryArray[element].date}))
+  location.href = "./adventure.html";
+})

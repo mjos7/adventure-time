@@ -18,6 +18,10 @@ nav {
   flex-wrap: wrap;
 }
 
+input#location {
+  background-color: #ffffff00;
+}
+
 .recent-search-nav {
   color: #fff;
   font-size: 20px;

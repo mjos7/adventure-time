@@ -100,6 +100,7 @@ nav h2 {
 .restaurant-image img,
 .event img {
   max-width: 400px;
+  min-width: 400px;
   height: 260px;
   /* margin-top: 30px; */
   border-radius: 15px 0 0 0;

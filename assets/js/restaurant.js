@@ -15,6 +15,7 @@ var restAddrEl = document.getElementById('restaurant-addr');
 var restaurantImageEl = document.getElementById('restaurant-image');
 var restaurantRatingEl = document.getElementById('restaurant-rating');
 var phoneNumEl = document.getElementById('phone-num');
+var restaurantLinkEl = document.getElementById("restaurant-link");
 
 function search(lat, lng) {
   
@@ -43,11 +44,10 @@ function callback(results, status) {
 
     // Checks business is open
     if (randomPlace.business_status === 'OPERATIONAL') {
-      // createMarker(randomPlace);
       
+      // createMarker(randomPlace);
       restaurant = {lat: randomPlace.geometry.location.lat(), long: randomPlace.geometry.location.lng()};
       initMap(restaurant.lat,restaurant.long,eventLoc.lat, eventLoc.long);
-      console.log(randomPlace);
       loadInfo(randomPlace);
     
     } else {
@@ -87,6 +87,9 @@ function moreDetails(place, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     // display data on screen
     phoneNumEl.textContent = place.formatted_phone_number;
+    restaurantLinkEl.setAttribute("href", place.url);
+
+    console.log(place)
   }
 }
 
