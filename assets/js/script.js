@@ -1,8 +1,13 @@
+// FROM GLOBAL FILE
+// USER INPUT
+var startDate = [];
+let endDate = startDate;
+
+
 var date = $("#date").val();
 var recentSearchesEl = $(".recent-searches");
 var searchBtnEl = $("#search");
 
-console.log(date);
 
 var searchHistoryArray = JSON.parse(localStorage.getItem("citySearch")) || [];
 
@@ -30,11 +35,9 @@ function formSubmitHandler(){
 // Load any past city searches
 function loadHistory(){
 
-  console.log("load running");
 
 
   for (var i = searchHistoryArray.length - 1; i >= 0; i--) {
-    console.log(searchHistoryArray[i])
     var searchItemEl = $("<div>").attr("class","search-item");
     searchItemEl.attr("id", i);
     var searchLocEl = $("<h4>").text(searchHistoryArray[i].city);

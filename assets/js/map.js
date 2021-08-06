@@ -1,53 +1,84 @@
-// var city = $("#location").text();
-function initMap(restaurantLat, restaurantLon, eventLat, eventLon) {
+'use strict'
+
+var eventObj = {};
+var restaurantObj = {};
+
+var makeRestaurantObj = function (randomPlace, restaurant) {
+  restaurantObj = {
+    name:  randomPlace.name,
+    address: randomPlace.vicinity,
+    // URL: randomPlace.fields.url,
+    lat: restaurant.lat,
+    lon: restaurant.long,
+  };
+  // Return it
+  console.log(restaurantObj);
+  return restaurantObj;
+}
+
+var makeEventObj = function (name, address, url, lat, lon) {
+  eventObj = {
+    name:  name,
+    address: address,
+    URL: url,
+    lat: lat,
+    lon: lon,
+  };
+  // Return it
+  console.log(eventObj);
+  return eventObj;
+}
 
 
-  eventLat = parseFloat(eventLat);
-  eventLon = parseFloat(eventLon);
 
-  let centerLat = (restaurantLat + eventLat) / 2;
-  let centerLon = (restaurantLon + eventLon) / 2;
 
+var centerLat = (restaurantObj.lat + eventObj.lat) / 2;
+var centerLon = (restaurantObj.lon + eventObj.lon) / 2;
+
+function initMap() {
   var center = { lat: centerLat, lng: centerLon };
-  console.log()
   var locations = [
     [
-      // `${restaurantName}<br>
-      // ${restaurantAddress}<br>`,
-      restaurantLat,
-      restaurantLon,
+      `${restaurantObj.name}<br>
+      ${restaurantObj.address}<br>
+     <a href="${restaurantObj.url}">Get Directions</a>`,
+     restaurantObj.lat,
+     restaurantObj.lon,
     ],
     [
-      // `${eventName}<br>
-      //   ${eventAddress}<br>`,
-      eventLat,
-      eventLon,
-    ]
+      `${eventObj.name}<br>
+        ${eventObj.address}<br>
+       <a href="${eventObj.url}">Get Directions</a>`,
+       eventObj.lat,
+       eventObj.lon,
+    ],
   ];
-
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 15,
+    zoom: 12,
     center: center,
   });
-  // var infowindow = new google.maps.InfoWindow({});
+  var infowindow = new google.maps.InfoWindow({});
   var marker, count;
-
   for (count = 0; count < locations.length; count++) {
     marker = new google.maps.Marker({
+      position: new google.maps.LatLng(
+        locations[count][1],
+        locations[count][2]
+      ),
       map: map,
-      position: new google.maps.LatLng(locations[count][0],locations[count][1]),
-      // title: locations[count][0]
+      title: locations[count][0],
     });
-    // google.maps.event.addListener(
-    //   marker,
-    //   'click',
-    //   (function (marker, count) {
-    //     return function () {
-    //       infowindow.setContent(locations[count][0]);
-    //       infowindow.open(map, marker);
-    //     };
-    //   })(marker, count)
-    // );
-    marker.setMap(map);
+    google.maps.event.addListener(
+      marker,
+      'click',
+      (function (marker, count) {
+        return function () {
+          infowindow.setContent(locations[count][0]);
+          infowindow.open(map, marker);
+        };
+      })(marker, count)
+    );
   }
 }
+
+

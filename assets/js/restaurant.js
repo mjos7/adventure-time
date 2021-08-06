@@ -12,6 +12,8 @@ var restaurantRatingEl = document.getElementById('restaurant-rating');
 var phoneNumEl = document.getElementById('phone-num');
 var restaurantLinkEl = document.getElementById("restaurant-link");
 
+
+
 function search(lat, lng) {
   
   eventLoc = {lat: lat, long: lng};
@@ -39,11 +41,19 @@ function callback(results, status) {
 
     // Checks business is open
     if (randomPlace.business_status === 'OPERATIONAL') {
+
+      // Check if above 4 stars
+      if(randomPlace.rating >= 4) {
       
       // createMarker(randomPlace);
       restaurant = {lat: randomPlace.geometry.location.lat(), long: randomPlace.geometry.location.lng()};
+      makeRestaurantObj(randomPlace, restaurant);
+      // initMap(eventObj, restaurantObj);
       initMap(restaurant.lat,restaurant.long,eventLoc.lat, eventLoc.long);
       loadInfo(randomPlace);
+
+
+
     
     } else {
       callback(results, status);
@@ -51,6 +61,7 @@ function callback(results, status) {
   } else {
     // There was a problem getting data
   }
+}
 }
 
 // Displays data to page
@@ -84,21 +95,6 @@ function moreDetails(place, status) {
     phoneNumEl.textContent = place.formatted_phone_number;
     restaurantLinkEl.setAttribute("href", place.url);
 
-    console.log(place)
   }
 }
 
-// Shows location on interactive map
-function createMarker(place) {
-  if (!place.geometry || !place.geometry.location) return;
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: place.geometry.location,
-    zoom: 15,
-  });
-  const marker = new google.maps.Marker({
-    map,
-    position: place.geometry.location,
-  });
-}
-
-// search for restaurant using event coordinates

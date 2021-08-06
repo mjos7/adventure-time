@@ -1,10 +1,12 @@
 var ticketmasterData = {}
+var eventObj = {};
 var dt = luxon.DateTime;
 var citySearch = JSON.parse(sessionStorage.getItem("search"));
 
 // these will include the indoor or outdoor choice in the value of the keyword i.e: music, sports, theater and more. 
 var events = ["comedy","theater","concert","sports","festival"];
 var city = "atlanta"
+
 
 function eventChoice(events){
     
@@ -16,7 +18,8 @@ function eventChoice(events){
     return choice;
 }
 
-console.log(startDate + ", " + endDate);
+
+
 // on click search fetces data. choice and hopefully start date can be passed without any issue.
 fetch(`https://app.ticketmaster.com/discovery/v2/events?&keyword=${eventChoice(events)}&localStartDate=${citySearch.date}&city=${citySearch.city}&apikey=xEi5eJQO6xisLlzuVDPj1trwjnDMatBA`)
 .then(response => {
@@ -33,12 +36,11 @@ fetch(`https://app.ticketmaster.com/discovery/v2/events?&keyword=${eventChoice(e
             // *display message that says something like no events available with this criteria*
             console.log("No events in search");
         }else{
-            console.log("valid data");
 
             var eventChoice = Math.floor(Math.random() * data._embedded.events.length);
             var event = data._embedded.events[eventChoice]
-
             ticketmasterData.date = event.dates.start.localDate;
+            ticketmasterData.info = event.info;
             ticketmasterData.url = event.url;
             ticketmasterData.img = event.images[0].url;
             ticketmasterData.name = event.name;
@@ -50,11 +52,23 @@ fetch(`https://app.ticketmaster.com/discovery/v2/events?&keyword=${eventChoice(e
             ticketmasterData.address = `${ticketmasterData.street} ${ticketmasterData.city}, ${ticketmasterData.state}`
 
             $("#event-title").text(ticketmasterData.name);
+            console.log(ticketmasterData.info);
             $("#event-address p").text(ticketmasterData.address);
             $("#event-link a").attr("href", ticketmasterData.url);
             $("#event-image").attr("src", ticketmasterData.img);
-            $("#date").text(dt.fromISO(ticketmasterData.date).toFormat("DDDD"));
-          
+            $("#event-description").text(ticketmasterData.info);
+            $("#date").text(dt.fromISO(ticketmasterData.date).toFormat("DDDD"));          
             search(ticketmasterData.lat, ticketmasterData.long);
+            makeEventObj(ticketmasterData.name, ticketmasterData.address,  ticketmasterData.url, ticketmasterData.lat, ticketmasterData.long);
+
     }       
 });
+
+
+
+
+
+
+// console.log(eventObj);
+
+
