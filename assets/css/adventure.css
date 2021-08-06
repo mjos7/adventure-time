@@ -126,7 +126,7 @@ nav h2 {
 .restaurant-info-icons {
   line-height: 2em;
   margin-bottom: 25px;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .event-info {
@@ -145,11 +145,11 @@ nav h2 {
   font-size: 15px;
 }
 
-address a {
-  font-size: 13px;
+address {
+  font-size: 14px;
   line-height: 2px;
-  text-decoration: none;
-  font-style: normal;
+  /* text-decoration: none; */
+  /* font-style: normal; */
   color: inherit;
 }
 

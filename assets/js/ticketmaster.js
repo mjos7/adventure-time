@@ -53,7 +53,7 @@ fetch(`https://app.ticketmaster.com/discovery/v2/events?&keyword=${eventChoice(e
 
             $("#event-title").text(ticketmasterData.name);
             console.log(ticketmasterData.info);
-            $("#event-address p").text(ticketmasterData.address);
+            $("#event-address").text(ticketmasterData.address);
             $("#event-link a").attr("href", ticketmasterData.url);
             $("#event-image").attr("src", ticketmasterData.img);
             $("#event-description").text(ticketmasterData.info);
