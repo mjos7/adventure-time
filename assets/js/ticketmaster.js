@@ -1,7 +1,6 @@
 var ticketmasterData = {}
 var dt = luxon.DateTime;
 var citySearch = JSON.parse(sessionStorage.getItem("search"));
-console.log(citySearch.city);
 
 // these will include the indoor or outdoor choice in the value of the keyword i.e: music, sports, theater and more. 
 var events = ["comedy","theater","concert","sports","festival"];

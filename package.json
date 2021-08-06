@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "postcss ../assets/css/styles.css -o build/styles.css"
+    "build": "postcss ./assets/css/styles.css -o build/styles.css"
   },
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/mjos7/adventure-time/issues"
   },
-  "homepage": "https://github.com/mjos7/adventure-time#readme",
+  "homepage": "https://github.com/mjos7/adventure-time/index.html",
   "dependencies": {
     "autoprefixer": "^10.3.1",
     "postcss-cli": "^8.3.1",

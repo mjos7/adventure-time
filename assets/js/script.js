@@ -2,6 +2,8 @@ var date = $("#date").val();
 var recentSearchesEl = $(".recent-searches");
 var searchBtnEl = $("#search");
 
+console.log(date);
+
 var searchHistoryArray = JSON.parse(localStorage.getItem("citySearch")) || [];
 
 
@@ -21,14 +23,6 @@ function formSubmitHandler(){
     }
 
     sessionStorage.setItem("search",JSON.stringify({city: city,date: date}))
-    // var searchHistoryEl = document.createElement('button');
-    // searchHistoryEl.className = 'btn';
-    // searchHistoryEl.setAttribute('data-city', cityname);
-    // searchHistoryEl.innerHTML = cityname;
-    // historyButtonsEl.appendChild(searchHistoryEl);
-    // historyCardEl.removeAttribute('style');
-
-    // cityNameInputEl.value = '';
   } 
   localStorage.setItem("citySearch",JSON.stringify(searchHistoryArray));
   location.href = "./adventure.html";
@@ -49,13 +43,6 @@ function loadHistory(){
     searchItemEl.append(searchLocEl);
     searchItemEl.append(searchDateEl);
     recentSearchesEl.append(searchItemEl);
-
-      // var searchHistoryEl = document.createElement('button');
-      // searchHistoryEl.className = 'btn';
-      // searchHistoryEl.setAttribute('data-city', searchArray[i]);
-      // searchHistoryEl.innerHTML = searchArray[i];
-      // historyButtonsEl.appendChild(searchHistoryEl);
-      // historyCardEl.removeAttribute('style');
     location.reload  
   }
 };
@@ -71,10 +58,7 @@ var clearHistory = function (event) {
   localStorage.removeItem('weatherSearch');
   historyCardEl.setAttribute('style', 'display: none');
 };
-console.log(cityFormEl);
-cityFormEl.addEventListener('submit', formSubmitHandler);
-historyButtonsEl.addEventListener('click', buttonClickHandler);
-trashEl.addEventListener('click', clearHistory);
+
 loadHistory();
 searchBtnEl.on("click", formSubmitHandler);
 $(".search-item").on("click", function(event){
