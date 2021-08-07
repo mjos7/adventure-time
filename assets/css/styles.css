@@ -205,6 +205,7 @@ input#location {
 .search-item h4 {
   font-size: 20px;
   color: rgb(123, 123, 123);
+  text-transform: capitalize;
 }
 .search-item p {
   color: #b89449;

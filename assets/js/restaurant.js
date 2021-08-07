@@ -1,4 +1,3 @@
-
 // var map;
 var service;
 var restaurantLoc;
@@ -10,13 +9,10 @@ var restAddrEl = document.getElementById('restaurant-addr');
 var restaurantImageEl = document.getElementById('restaurant-image');
 var restaurantRatingEl = document.getElementById('restaurant-rating');
 var phoneNumEl = document.getElementById('phone-num');
-var restaurantLinkEl = document.getElementById("restaurant-link");
-
-
+var restaurantLinkEl = document.getElementById('restaurant-link');
 
 function search(lat, lng) {
-  
-  eventLoc = {lat: lat, long: lng};
+  eventLoc = { lat: lat, long: lng };
   var searchLocation = new google.maps.LatLng(lat, lng);
 
   map = new google.maps.Map(document.getElementById('map'));
@@ -33,35 +29,30 @@ function search(lat, lng) {
 
 // chooses a random restaurant from the array returned
 function callback(results, status) {
-  
   if (status == google.maps.places.PlacesServiceStatus.OK) {
-    
     var index = Math.floor(Math.random() * results.length);
     var randomPlace = results[index];
 
     // Checks business is open
     if (randomPlace.business_status === 'OPERATIONAL') {
-
       // Check if above 4 stars
-      if(randomPlace.rating >= 4) {
-      
-      // createMarker(randomPlace);
-      restaurant = {lat: randomPlace.geometry.location.lat(), long: randomPlace.geometry.location.lng()};
-      makeRestaurantObj(randomPlace, restaurant);
-      // initMap(eventObj, restaurantObj);
-      initMap(restaurant.lat,restaurant.long,eventLoc.lat, eventLoc.long);
-      loadInfo(randomPlace);
-
-
-
-    
+      if (randomPlace.rating >= 4) {
+        // createMarker(randomPlace);
+        restaurant = {
+          lat: randomPlace.geometry.location.lat(),
+          long: randomPlace.geometry.location.lng(),
+        };
+        makeRestaurantObj(randomPlace, restaurant);
+        // initMap(eventObj, restaurantObj);
+        initMap(restaurant.lat, restaurant.long, eventLoc.lat, eventLoc.long);
+        loadInfo(randomPlace);
+      } else {
+        callback(results, status);
+      }
     } else {
-      callback(results, status);
+      // There was a problem getting data
     }
-  } else {
-    // There was a problem getting data
   }
-}
 }
 
 // Displays data to page
@@ -93,8 +84,6 @@ function moreDetails(place, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     // display data on screen
     phoneNumEl.textContent = place.formatted_phone_number;
-    restaurantLinkEl.setAttribute("href", place.url);
-
+    restaurantLinkEl.setAttribute('href', place.url);
   }
 }
-

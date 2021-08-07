@@ -1,54 +1,53 @@
 // FROM GLOBAL FILE
 // USER INPUT
+'use strict';
+
 var startDate = [];
-let endDate = startDate;
+var endDate = startDate;
 
+var recentSearchesEl = $('.recent-searches');
+var searchBtnEl = $('#search');
 
-var date = $("#date").val();
-var recentSearchesEl = $(".recent-searches");
-var searchBtnEl = $("#search");
-
-
-var searchHistoryArray = JSON.parse(localStorage.getItem("citySearch")) || [];
-
-
-function formSubmitHandler(){
-  
+var searchHistoryArray = JSON.parse(localStorage.getItem('citySearch')) || [];
+console.log(searchHistoryArray);
+function formSubmitHandler() {
   event.preventDefault();
   // get city name value from input element
-  var city = $("#location").val();
+  var city = $('#location').val();
+  var date = $('#date').val();
 
   // Set city name in local storage and generate history buttons
   if (city) {
-    if(searchHistoryArray.length <= 7){
-      searchHistoryArray.push({city: city,date: date});
-    }else if(searchHistoryArray.length > 5){
+    if (searchHistoryArray.length <= 7) {
+      searchHistoryArray.push({ city: city, date: date });
+    } else if (searchHistoryArray.length > 5) {
       searchHistoryArray.pop();
-      searchHistoryArray.splice(0,0, {city: city,date: date})
+      searchHistoryArray.splice(0, 0, { city: city, date: date });
     }
 
-    sessionStorage.setItem("search",JSON.stringify({city: city,date: date}))
-  } 
-  localStorage.setItem("citySearch",JSON.stringify(searchHistoryArray));
-  location.href = "./adventure.html";
-};
+    sessionStorage.setItem(
+      'search',
+      JSON.stringify({ city: city, date: date })
+    );
+  }
+  localStorage.setItem('citySearch', JSON.stringify(searchHistoryArray));
+  location.href = './adventure.html';
+}
 // Load any past city searches
-function loadHistory(){
-
-
-
+function loadHistory() {
   for (var i = searchHistoryArray.length - 1; i >= 0; i--) {
-    var searchItemEl = $("<div>").attr("class","search-item");
-    searchItemEl.attr("id", i);
-    var searchLocEl = $("<h4>").text(searchHistoryArray[i].city);
-    var searchDateEl = $("<p>").text(searchHistoryArray[i].date);
+    var searchItemEl = $('<div>').attr('class', 'search-item');
+    searchItemEl.attr('id', i);
+    var searchLocEl = $('<h4>').text(searchHistoryArray[i].city);
+    var searchDateEl = $('<p>').text(searchHistoryArray[i].date);
 
     searchItemEl.append(searchLocEl);
     searchItemEl.append(searchDateEl);
     recentSearchesEl.append(searchItemEl);
-    location.reload  
+
+    location.reload;
   }
-};
+}
 // Search using search history buttons
 var buttonClickHandler = function (event) {
   var cityname = event.target.getAttribute('data-city');
@@ -56,17 +55,18 @@ var buttonClickHandler = function (event) {
     formSubmitHandler(cityname);
   }
 };
-// Clear Search History
-var clearHistory = function (event) {
-  localStorage.removeItem('weatherSearch');
-  historyCardEl.setAttribute('style', 'display: none');
-};
 
 loadHistory();
-searchBtnEl.on("click", formSubmitHandler);
-$(".search-item").on("click", function(event){
+searchBtnEl.on('click', formSubmitHandler);
+$('.search-item').on('click', function (event) {
   event.stopPropagation();
   var element = $(this).attr('id');
-  sessionStorage.setItem("search",JSON.stringify({city: searchHistoryArray[element].city,date: searchHistoryArray[element].date}))
-  location.href = "./adventure.html";
-})
+  sessionStorage.setItem(
+    'search',
+    JSON.stringify({
+      city: searchHistoryArray[element].city,
+      date: searchHistoryArray[element].date,
+    })
+  );
+  location.href = './adventure.html';
+});
