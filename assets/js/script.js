@@ -3,7 +3,7 @@
 'use strict';
 var dt = luxon.DateTime;
 var today = dt.now().toISODate();
-var date = $('#date');
+var date = $('#inline_cal');
 date.attr('value', today);
 date.attr('min', today);
 date.attr('max', dt.fromISO(today).plus({ years: 1 }).toISODate());
@@ -19,7 +19,7 @@ function formSubmitHandler() {
   event.preventDefault();
   // get city name value from input element
   var city = $('#location').val();
-  var date = $('#date').val();
+  var date = $('#inline_cal').val();
 
   // Set city name in local storage and generate history buttons
   if (city) {

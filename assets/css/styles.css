@@ -15,15 +15,22 @@ header {
 }
 
 nav {
-  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 30px;
 }
 
 input#location {
-  background-color: #ffffff00;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+a:hover {
+  color: #fff;
 }
 
 .recent-search-nav {
-  color: #fff;
+  color: #c2c2c2;
   font-size: 20px;
   margin-right: 50px;
   font-weight: 200;
@@ -93,22 +100,6 @@ input#location {
   width: 75%;
 }
 
-.cst-btn {
-  padding: 15px;
-  background-color: hsla(36, 100%, 90%, 0.2);
-  border: solid;
-  color: white;
-  border-color: rgba(237, 237, 237, 0.1);
-  box-shadow: 0 1px 10px rgb(0 0 0 / 0.1);
-  border-width: 1px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-size: 16px;
-  margin-bottom: 20px;
-  text-align: center;
-  transition: 0.5s;
-}
-
 ::-webkit-calendar-picker-indicator {
   color: white;
 }
@@ -137,13 +128,26 @@ input#location {
   color: white;
 }
 
+.cst-btn {
+  padding: 15px;
+  background-color: hsla(36, 100%, 90%, 0.2);
+  border: solid;
+  color: white;
+  border-color: rgba(237, 237, 237, 0.1);
+  box-shadow: 0 1px 10px rgb(0 0 0 / 0.1);
+  border-width: 1px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+  transition: 0.5s;
+}
+
 .cst-btn-lft {
   border-radius: 10px 0 0 10px;
   width: 100%;
-}
-
-.date-input input {
-  width: 120%;
+  min-width: 200px;
 }
 
 .cst-btn-cntr {
@@ -159,8 +163,32 @@ input#location {
   color: #f0f0f0;
 }
 
-input#location {
+.date-input input {
+  width: 100%;
+  background: rgba(0, 0, 0, 0) !important;
+  text-align: center;
+  height: 15px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  color: white !important;
+}
+
+.form-control:focus {
   background-color: #ffffff00;
+  color: white;
+}
+
+div#city input {
+  color: white;
+  padding: 0 30px;
+}
+
+.rd-day-selected,
+.rd-time-selected,
+.rd-time-option:hover {
+  cursor: pointer;
+  background-color: #c7a250;
 }
 
 .cst-btn-rgt:hover {
@@ -182,6 +210,7 @@ input#location {
 
 #recent-searches h2 {
   margin: 50px 0;
+  text-decoration: none;
 }
 
 .search-item {
@@ -272,7 +301,7 @@ input#location {
   }
 
   #recent-searches h2 {
-    margin: 50px;
+    margin: 80px 10px 0px;
   }
 
   .cst-btn,
@@ -288,12 +317,15 @@ input#location {
   }
 
   .hero-statement {
-    margin-top: 5vh;
+    margin-top: 0vh;
   }
 
   header,
   .hero {
-    background-position: 55%;
+    background-position: 50% -100px;
+    height: 100vh;
+    background-position-y: top;
+    background-size: cover;
   }
 
   nav {
@@ -301,5 +333,54 @@ input#location {
   }
   nav img {
     width: 60%;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .recent-search-nav {
+    display: none;
+  }
+  .hero-statement h2 {
+    font-size: 55px;
+    margin: 30px 0;
+  }
+
+  header {
+    background-image: url('../img/at-hero-sml.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-position: 50%;
+    top: 0;
+    z-index: 9999;
+  }
+
+  .hero {
+    display: flex;
+    flex-wrap: wrap;
+    background-image: url('../img/at-hero-sml.jpg');
+    background-size: cover;
+    background-attachment: center;
+    height: 50vh;
+  }
+
+  .rd-container.rd-container-attachment {
+    left: 0px !important;
+    top: 260px !important;
+  }
+
+  nav {
+    justify-content: center;
+  }
+
+  .date-input input {
+    padding: 20px;
+  }
+  .cst-btn-lft {
+    padding: 0;
+  }
+  input#location {
+    text-align: center;
   }
 }

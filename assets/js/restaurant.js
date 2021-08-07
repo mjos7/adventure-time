@@ -19,7 +19,7 @@ function search(lat, lng) {
 
   var request = {
     location: searchLocation,
-    radius: '8000',
+    radius: '10000',
     type: ['restaurant'],
   };
 
