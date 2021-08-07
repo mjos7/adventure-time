@@ -13,13 +13,18 @@ function formSubmitHandler() {
 
   if (city) {
     // Loop through current array to check if current search matches a previous one
-    for (var i = 0; i < searchHistoryArray.length; i++) {
-      if ((searchHistoryArray[i].city === city) && (searchHistoryArray[i].date === date)) {
-        searchExists = true;
-      }    
-    }
+    console.log(searchHistoryArray);
+    // for (var i = 0; i < searchHistoryArray.length; i++) {
+    //   if ((searchHistoryArray[i].city === city) && (searchHistoryArray[i].date === date)) {
+    //     searchExists = true;
+    //   }    
+    // }
+
+    var cityFound = searchHistoryArray.some(search => search ['city'] === city);
+    console.log(cityFound);
+
     // If the search doesn't already exist
-    if (!searchExists) {
+    if (!cityFound) {
       if (searchHistoryArray.length <= 7) {
           searchHistoryArray.push({ city: city, date: date });
         } else if (searchHistoryArray.length > 5) {
@@ -28,7 +33,9 @@ function formSubmitHandler() {
         }
     }
     localStorage.setItem('citySearch', JSON.stringify(searchHistoryArray));
+    location.href = './adventure.html';
   } else {
     // no city was input
+    alert('No city was found!');
   }
 }
