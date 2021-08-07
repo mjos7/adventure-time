@@ -319,7 +319,8 @@ div#city {
 
   header,
   .hero {
-    background-position: 52% -100px;
+    background-position: 52% -200px;
+    height: 70vh;
   }
 
   nav {
