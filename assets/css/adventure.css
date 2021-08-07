@@ -327,6 +327,10 @@ map iframe {
     margin-bottom: 100px;
   }
 
+  #your-adv {
+    display: none;
+  }
+
   #restaurant-image,
   #event-image,
   .restaurant-info,

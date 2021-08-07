@@ -169,11 +169,10 @@ a:hover {
   height: 15px;
   margin: 0;
   border: none;
-  color: white;
+  color: white !important;
 }
 
 .form-control:focus {
-  color: #495057;
   background-color: #ffffff00;
   color: white;
 }
