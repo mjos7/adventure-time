@@ -1,38 +1,54 @@
-let restaurantName = "Ruths' Chris Steak house";
-let restaurantAddress = '13455 Maxella Ave #230, Marina Del ray, CA 90292';
-let restaurantLink = `https://www.google.com/maps/place/Ruth's+Chris+Steak+House/@33.9866414,-118.444276,17z/data=!3m2!4b1!5s0x80c2ba87c55c1d8f:0x7edf0a3aebeb1140!4m5!3m4!1s0x80c2ba86349ecb83:0x27634e3d86541933!8m2!3d33.986637!4d-118.4420873`;
-let restaurantLat = 33.985981;
-let restaurantLon = -118.442772;
+'use strict';
 
-let eventName = 'Treehouse Rooftop Lounge';
-let eventAddress = '686 North Spring Street Los Angeles, CA 90012';
-let eventLink = `https://www.google.com/maps/place/Treehouse/@34.05955,-118.2399147,17z/data=!3m1!4b1!4m5!3m4!1s0x80c2c65b29455ad9:0x100690ebd8e3e872!8m2!3d34.0596031!4d-118.2378731`;
-let eventLat = 34.05953;
-let eventLon = -118.23772;
+var eventObj = {};
+var restaurantObj = {};
 
-let centerLat = (restaurantLat + eventLat) / 2;
-let centerLon = (restaurantLon + eventLon) / 2;
+var makeRestaurantObj = function (randomPlace, restaurant) {
+  restaurantObj = {
+    name: randomPlace.name,
+    address: randomPlace.vicinity,
+    // URL: randomPlace.fields.url,
+    lat: parseFloat(restaurant.lat),
+    lon: parseFloat(restaurant.long),
+  };
+  // Return it
+  return restaurantObj;
+};
+
+var makeEventObj = function (name, address, url, lat, lon) {
+  eventObj = {
+    name: name,
+    address: address,
+    url: url,
+    lat: parseFloat(lat),
+    lon: parseFloat(lon),
+  };
+
+  return eventObj;
+};
 
 function initMap() {
+  var centerLat = (restaurantObj.lat + eventObj.lat) / 2;
+  var centerLon = (restaurantObj.lon + eventObj.lon) / 2;
   var center = { lat: centerLat, lng: centerLon };
   var locations = [
     [
-      `${restaurantName}<br>
-      ${restaurantAddress}<br>
-     <a href="${restaurantLink}">Get Directions</a>`,
-      restaurantLat,
-      restaurantLon,
+      `${restaurantObj.name}<br>
+      ${restaurantObj.address}<br>
+     <a href="${restaurantObj.url}">Get Directions</a>`,
+      restaurantObj.lat,
+      restaurantObj.lon,
     ],
     [
-      `${eventName}<br>
-        ${eventAddress}<br>
-       <a href="${eventLink}">Get Directions</a>`,
-      eventLat,
-      eventLon,
+      `${eventObj.name}<br>
+        ${eventObj.address}<br>
+       <a href="${eventObj.url}">Get Directions</a>`,
+      eventObj.lat,
+      eventObj.lon,
     ],
   ];
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 12,
+    zoom: 13,
     center: center,
   });
   var infowindow = new google.maps.InfoWindow({});

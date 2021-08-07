@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adventure Time</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="build/styles.css" />
+</head>
+
+<body>
+  <header>
+    <nav class="flex justify-between items-center">
+      <a href="index.html"><img class="max-w-xs p-8" src="assets/img/adventure-time-logo-reverse.png"
+          alt="Logo of Adventure Time" /></a>
+      <a href="#recent-searches" class="recent-search-nav">Recent Searches</a>
+    </nav>
+    <section class="hero">
+      <div class="hero-statement">
+        <h2>
+          Your <span id="adventure"> Adventure</span> <br />
+          Starts here
+        </h2>
+        <p>Enter a time and place to start your journey</p>
+        <br />
+      </div>
+      <form class="search-input flex justify-between">
+        <input type="date" id="date" name="date" value='' min="2021-08-08" max="2022-12-31"
+          class="date-input cst-btn cst-btn-lft">
+        <div class="location-input cst-btn cst-btn-cntr">
+          <div id="city">
+            <input id="location" type="text" tabindex="3" name="city" placeholder="City" required>
+          </div>
+        </div>
+        <button class="cst-btn cst-btn-rgt" id="search"><a href="/adventure.html">Find my Adventure</a></button>
+      </form>
+    </section>
+    <!-- HERO END -->
+  </header>
+  <main class="m-auto w-3/4">
+    <div id="recent-searches">
+      <h2 class="text-black text-4xl text-center">Recent Searches</h2>
+      <div class="recent-searches flex justify-around">
+      </div>
+    </main>
+    <footer class="main-footer">
+      <h5>Made with ❤️&nbsp by Team Awesome</h5>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.6/dayjs.min.js" integrity="sha512-bwD3VD/j6ypSSnyjuaURidZksoVx3L1RPvTkleC48SbHCZsemT3VKMD39KknPnH728LLXVMTisESIBOAb5/W0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@2.0.1/build/global/luxon.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+  </body>
+
+</html>
