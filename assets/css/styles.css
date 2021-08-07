@@ -100,22 +100,6 @@ a:hover {
   width: 75%;
 }
 
-.cst-btn {
-  padding: 15px;
-  background-color: hsla(36, 100%, 90%, 0.2);
-  border: solid;
-  color: white;
-  border-color: rgba(237, 237, 237, 0.1);
-  box-shadow: 0 1px 10px rgb(0 0 0 / 0.1);
-  border-width: 1px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-size: 16px;
-  margin-bottom: 20px;
-  text-align: center;
-  transition: 0.5s;
-}
-
 ::-webkit-calendar-picker-indicator {
   color: white;
 }
@@ -144,9 +128,26 @@ a:hover {
   color: white;
 }
 
+.cst-btn {
+  padding: 15px;
+  background-color: hsla(36, 100%, 90%, 0.2);
+  border: solid;
+  color: white;
+  border-color: rgba(237, 237, 237, 0.1);
+  box-shadow: 0 1px 10px rgb(0 0 0 / 0.1);
+  border-width: 1px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 16px;
+  margin-bottom: 20px;
+  text-align: center;
+  transition: 0.5s;
+}
+
 .cst-btn-lft {
   border-radius: 10px 0 0 10px;
   width: 100%;
+  min-width: 200px;
 }
 
 .cst-btn-cntr {
@@ -168,6 +169,7 @@ a:hover {
   text-align: center;
   height: 15px;
   margin: 0;
+  padding: 0;
   border: none;
   color: white !important;
 }
@@ -177,8 +179,9 @@ a:hover {
   color: white;
 }
 
-div#city {
+div#city input {
   color: white;
+  padding: 0 30px;
 }
 
 .rd-day-selected,
@@ -319,8 +322,8 @@ div#city {
 
   header,
   .hero {
-    background-position: 52% -200px;
-    height: 70vh;
+    background-position: 52% -170px;
+    height: 100vh;
   }
 
   nav {
@@ -348,5 +351,12 @@ div#city {
 
   nav {
     justify-content: center;
+  }
+
+  .date-input input {
+    padding: 5px;
+  }
+  input#location {
+    text-align: center;
   }
 }
