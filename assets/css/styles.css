@@ -322,7 +322,7 @@ div#city input {
 
   header,
   .hero {
-    background-position: 52% -100px;
+    background-position: 50% -100px;
     height: 100vh;
     background-position-y: top;
     background-size: cover;
@@ -347,7 +347,7 @@ div#city input {
   }
 
   header {
-    background-image: url('../img/at-hero-med.jpg');
+    background-image: url('../img/at-hero-sml.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -359,10 +359,9 @@ div#city input {
   .hero {
     display: flex;
     flex-wrap: wrap;
-    background-image: url('../img/at-hero-med.jpg');
+    background-image: url('../img/at-hero-sml.jpg');
     background-size: cover;
     background-attachment: center;
-    background-position: 54%;
     height: 50vh;
   }
 
