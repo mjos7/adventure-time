@@ -109,6 +109,10 @@ input#location {
   transition: 0.5s;
 }
 
+::-webkit-calendar-picker-indicator {
+  color: white;
+}
+
 #city-input {
   background-color: hsla(36, 100%, 90%, 0.2);
   border: none;

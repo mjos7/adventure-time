@@ -230,10 +230,11 @@ map iframe {
     max-height: none;
     margin-right: 0;
   }
-
-  .restaurant-info,
   .event-info {
     padding-left: 0;
+  }
+  .restaurant-info {
+    padding-left: 50px;
   }
 
   #map {

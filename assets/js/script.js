@@ -1,6 +1,12 @@
 // FROM GLOBAL FILE
 // USER INPUT
 'use strict';
+var dt = luxon.DateTime;
+var today = dt.now().toISODate();
+var date = $('#date');
+date.attr('value', today);
+date.attr('min', today);
+date.attr('max', dt.fromISO(today).plus({ years: 1 }).toISODate());
 
 var startDate = [];
 var endDate = startDate;
@@ -9,7 +15,6 @@ var recentSearchesEl = $('.recent-searches');
 var searchBtnEl = $('#search');
 
 var searchHistoryArray = JSON.parse(localStorage.getItem('citySearch')) || [];
-console.log(searchHistoryArray);
 function formSubmitHandler() {
   event.preventDefault();
   // get city name value from input element
@@ -39,7 +44,9 @@ function loadHistory() {
     var searchItemEl = $('<div>').attr('class', 'search-item');
     searchItemEl.attr('id', i);
     var searchLocEl = $('<h4>').text(searchHistoryArray[i].city);
-    var searchDateEl = $('<p>').text(searchHistoryArray[i].date);
+    var searchDateEl = $('<p>').text(
+      dt.fromISO(searchHistoryArray[i].date).toFormat('cccc, DD')
+    );
 
     searchItemEl.append(searchLocEl);
     searchItemEl.append(searchDateEl);
