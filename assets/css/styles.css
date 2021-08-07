@@ -15,7 +15,10 @@ header {
 }
 
 nav {
-  flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 30px;
 }
 
 input#location {
@@ -325,6 +328,7 @@ div#city {
   }
   nav img {
     width: 60%;
+    margin: auto;
   }
 }
 
