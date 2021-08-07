@@ -2,9 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Adventure Time</title>
+
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Adventure Time</title>
+
+ <!-- Datepicker styles start -->
+
+ <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="assets/date-picker/fonts/icomoon/style.css">
+ <link rel="stylesheet" href="assets/date-picker/css/rome.css">
+ <link rel="stylesheet" href="assets/date-picker/css/bootstrap.min.css">
+<link rel="stylesheet" href="assets/date-picker/css/calendar-style.css" />
+<!-- Datepicker styles end -->
+
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="stylesheet" href="build/styles.css" />
 </head>
@@ -26,11 +37,14 @@
         <br />
       </div>
       <form class="search-input flex justify-between">
-        <input type="date" id="date" name="date" value='' min="2021-08-08" max="2022-12-31"
-          class="date-input cst-btn cst-btn-lft">
+        <div class="date-input cst-btn cst-btn-lft">
+          <div class="form-group">
+            <input placeholder="Date" type="text" class="form-control" id="inline_cal">
+          </div>
+        </div>
         <div class="location-input cst-btn cst-btn-cntr">
           <div id="city">
-            <input id="location" type="text" tabindex="3" name="city" placeholder="City" required>
+            <input id="location" type="text" name="city" placeholder="City" required>
           </div>
         </div>
         <button class="cst-btn cst-btn-rgt" id="search"><a href="/adventure.html">Find my Adventure</a></button>
@@ -51,6 +65,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.6/dayjs.min.js" integrity="sha512-bwD3VD/j6ypSSnyjuaURidZksoVx3L1RPvTkleC48SbHCZsemT3VKMD39KknPnH728LLXVMTisESIBOAb5/W0Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/luxon@2.0.1/build/global/luxon.min.js"></script>
     <script src="./assets/js/script.js"></script>
+    <!-- Datpicker Scripts -->
+    <script src="assets/date-picker/js/jquery-3.3.1.min.js"></script>
+    <script src="assets/date-picker/js/popper.min.js"></script>
+    <script src="assets/date-picker/js/bootstrap.min.js"></script>
+    <script src="assets/date-picker/js/rome.js"></script>
+    <script src="assets/date-picker/js/main.js"></script>
   </body>
 
 </html>

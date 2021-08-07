@@ -22,8 +22,12 @@ input#location {
   background-color: #ffffff00;
 }
 
-.recent-search-nav {
+a:hover {
   color: #fff;
+}
+
+.recent-search-nav {
+  color: #c2c2c2;
   font-size: 20px;
   margin-right: 50px;
   font-weight: 200;
@@ -142,10 +146,6 @@ input#location {
   width: 100%;
 }
 
-.date-input input {
-  width: 120%;
-}
-
 .cst-btn-cntr {
   border-radius: 0;
   width: 100%;
@@ -159,8 +159,31 @@ input#location {
   color: #f0f0f0;
 }
 
-input#location {
+.date-input input {
+  width: 100%;
+  background: #ffffff00;
+  text-align: center;
+  height: 15px;
+  margin: 0;
+  border: none;
+  color: white;
+}
+
+.form-control:focus {
+  color: #495057;
   background-color: #ffffff00;
+  color: white;
+}
+
+div#city {
+  color: white;
+}
+
+.rd-day-selected,
+.rd-time-selected,
+.rd-time-option:hover {
+  cursor: pointer;
+  background-color: #c7a250;
 }
 
 .cst-btn-rgt:hover {
@@ -182,6 +205,7 @@ input#location {
 
 #recent-searches h2 {
   margin: 50px 0;
+  text-decoration: none;
 }
 
 .search-item {
@@ -301,5 +325,15 @@ input#location {
   }
   nav img {
     width: 60%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .recent-search-nav {
+    display: none;
+  }
+  .hero-statement h2 {
+    font-size: 55px;
+    margin: 30px 0;
   }
 }

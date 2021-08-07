@@ -43,18 +43,15 @@ var fetchAPI = function () {
         console.log('No events in search');
         fetchAPI();
       } else {
-        // var eventChoice = Math.floor(
-        //   Math.random() * data._embedded.events.length
-        // );
-
         var event = data._embedded.events[0];
 
         ticketmasterData.date = event.dates.start.localDate;
 
         ticketmasterData.info = event.info;
         if (ticketmasterData.info != undefined) {
-          if (ticketmasterData.info.length > 250)
-            ticketmasterData.info = ticketmasterData.info.substring(0, 250);
+          if (ticketmasterData.info.length > 150)
+            ticketmasterData.info =
+              ticketmasterData.info.substring(0, 150) + '...';
         }
         ticketmasterData.url = event.url;
         ticketmasterData.img = event.images[0].url;
@@ -71,7 +68,7 @@ var fetchAPI = function () {
         $('#event-link a').attr('href', ticketmasterData.url);
         $('#event-image').attr('src', ticketmasterData.img);
         $('#event-description').text(ticketmasterData.info);
-        $('#date').text(dt.fromISO(ticketmasterData.date).toFormat('DDDD'));
+        $('#date').text(dt.fromISO(ticketmasterData.date).toFormat('cccc, DD'));
         search(ticketmasterData.lat, ticketmasterData.long);
         makeEventObj(
           ticketmasterData.name,

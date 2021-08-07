@@ -100,7 +100,7 @@ nav h2 {
 .restaurant-image img,
 .event img {
   max-width: 400px;
-  min-width: 400px;
+  min-width: 350px;
   height: 260px;
   /* margin-top: 30px; */
   border-radius: 15px 0 0 0;
@@ -325,5 +325,20 @@ map iframe {
 
   #event-image {
     margin-bottom: 100px;
+  }
+
+  #restaurant-image,
+  #event-image,
+  .restaurant-info,
+  .event-info,
+  .restaurant-image,
+  .event-image {
+    min-width: 310px;
+  }
+
+  .restaurant-info button,
+  .event-info button {
+    width: 100%;
+    min-width: 300px;
   }
 }
