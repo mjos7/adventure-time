@@ -376,7 +376,10 @@ div#city input {
   }
 
   .date-input input {
-    padding: 5px;
+    padding: 20px;
+  }
+  .cst-btn-lft {
+    padding: 0;
   }
   input#location {
     text-align: center;
