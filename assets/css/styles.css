@@ -22,7 +22,7 @@ nav {
 }
 
 input#location {
-  background-color: #ffffff00;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 a:hover {
