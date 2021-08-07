@@ -301,7 +301,7 @@ div#city input {
   }
 
   #recent-searches h2 {
-    margin: 50px;
+    margin: 200px 10px 0px;
   }
 
   .cst-btn,
@@ -317,7 +317,7 @@ div#city input {
   }
 
   .hero-statement {
-    margin-top: 5vh;
+    margin-top: 0vh;
   }
 
   header,
@@ -344,6 +344,26 @@ div#city input {
   .hero-statement h2 {
     font-size: 55px;
     margin: 30px 0;
+  }
+
+  header {
+    background-image: url('../img/at-hero-med.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-position: 50%;
+    top: 0;
+    z-index: 9999;
+  }
+
+  .hero {
+    display: flex;
+    flex-wrap: wrap;
+    background-image: url('../img/at-hero-med.jpg');
+    background-size: cover;
+    background-attachment: center;
+    background-position: 54%;
+    height: 50vh;
   }
 
   .rd-container.rd-container-attachment {
