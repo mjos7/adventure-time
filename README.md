@@ -7,10 +7,12 @@
 A search engine for events and dining that provides information for decision making and adventure planning.
 Technologies used: JavaScript, CSS, HTML, Tailwind, Google Places Library, Ticketmaster API, Weather API, Location API.
 
-Coordinators 
+Coordinators
 [Mark](https://github.com/mjos7)
 [Cayman](https://github.com/MaziveVelocity)
 [Cat](https://github.com/cat-bh)
 [Shannon](https://github.com/ShannonDukes)
 
 ### ©️2021 Made with ❤️ by Team Awesome
+
+![Welcome to Adventure Time](assets/img/adventure-time-photo.png)
