@@ -14,3 +14,5 @@ Coordinators
 [Shannon](https://github.com/ShannonDukes)
 
 ### ©️2021 Made with ❤️ by Team Awesome
+
+![Welcome to Adventure Time](assets/img/adventure-time-photo.png)
