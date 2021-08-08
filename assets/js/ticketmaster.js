@@ -1,9 +1,9 @@
 var ticketmasterData = {};
 var eventObj = {};
 var dt = luxon.DateTime;
-var citySearch = JSON.parse(localStorage.getItem('citySearch'));
-console.log(citySearch[0].date);
-var endDate = dt.fromISO(citySearch[0].date).plus({ days: 30 }).toISODate();
+var citySearch = JSON.parse(sessionStorage.getItem('citySearch'));
+console.log(citySearch.date);
+var endDate = dt.fromISO(citySearch.date).plus({ days: 30 }).toISODate();
 
 // these will include the indoor or outdoor choice in the value of the keyword i.e: music, sports, theater and more.
 var events = ['comedy', 'theatre', 'concert', 'sports', 'festival'];
@@ -17,16 +17,16 @@ function eventChoice(events) {
 
   return choice;
 }
-//app.ticketmaster.com/discovery/v2/events.json?classificationName=music&dmaId=324&apikey={apikey}
+
 // on click search fetces data. choice and hopefully start date can be passed without any issue.
 var fetchAPI = function () {
   fetch(
     `https://app.ticketmaster.com/discovery/v2/events?keyword=${eventChoice(
       events
     )}&startDateTime=${
-      citySearch[0].date
+      citySearch.date
     }T06:00:00Z&endDateTime=${endDate}T06:00:00Z&city=${
-      citySearch[0].city
+      citySearch.city
     }&sort=date,asc&apikey=xEi5eJQO6xisLlzuVDPj1trwjnDMatBA`
   )
     .then(response => {

@@ -31,7 +31,7 @@ function formSubmitHandler() {
     }
 
     sessionStorage.setItem(
-      'search',
+      'citySearch',
       JSON.stringify({ city: city, date: date })
     );
   }
@@ -69,7 +69,7 @@ $('.search-item').on('click', function (event) {
   event.stopPropagation();
   var element = $(this).attr('id');
   sessionStorage.setItem(
-    'search',
+    'citySearch',
     JSON.stringify({
       city: searchHistoryArray[element].city,
       date: searchHistoryArray[element].date,

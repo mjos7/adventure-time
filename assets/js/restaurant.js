@@ -1,9 +1,5 @@
-// var map;
 var service;
-var restaurantLoc;
 var eventLoc;
-// var eventName;
-// var eventAddress;
 var restaurantEl = document.getElementById('restaurant-title');
 var restAddrEl = document.getElementById('restaurant-addr');
 var restaurantImageEl = document.getElementById('restaurant-image');

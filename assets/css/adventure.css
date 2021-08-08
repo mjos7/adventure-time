@@ -60,8 +60,7 @@ nav h2 {
 .event {
   display: flex;
   flex-wrap: wrap;
-
-  /* justify-content: center; */
+  justify-content: center;
   padding: 30px 30px 0 30px;
   line-height: 2em;
   background-color: rgb(255, 255, 255);
@@ -297,7 +296,7 @@ map iframe {
 
   #event-link,
   #restaurant-link {
-    width: 100%;
+    width: 70%;
   }
   #event-image {
     margin-bottom: 100px;
