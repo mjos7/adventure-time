@@ -347,7 +347,7 @@ div#city input {
   }
 
   header {
-    background-image: url('../img/at-hero-sml.jpg');
+    background-image: url('../img/at-hero-2-mobile.jpeg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -359,7 +359,7 @@ div#city input {
   .hero {
     display: flex;
     flex-wrap: wrap;
-    background-image: url('../img/at-hero-sml.jpg');
+    background-image: url('../img/at-hero-2-mobile.jpeg');
     background-size: cover;
     background-attachment: center;
     height: 50vh;
