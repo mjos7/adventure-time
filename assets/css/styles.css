@@ -287,6 +287,24 @@ div#city input {
   }
 }
 
+@media screen and (max-width: 755px) {
+  .cst-btn,
+  .cst-btn-cntr,
+  .cst-btn-rgt,
+  .cst-btn-lft,
+  .recent-searches {
+    border-radius: 15px;
+  }
+
+  .hero form {
+    flex-wrap: wrap;
+  }
+
+  input#location {
+    text-align: center;
+  }
+}
+
 @media screen and (max-width: 560px) {
   .recent-search-nav {
     display: none;
@@ -301,7 +319,7 @@ div#city input {
   }
 
   #recent-searches h2 {
-    margin: 80px 10px 0px;
+    margin: 160px 10px 0px;
   }
 
   .cst-btn,
@@ -380,7 +398,8 @@ div#city input {
   .cst-btn-lft {
     padding: 0;
   }
-  input#location {
-    text-align: center;
+
+  #recent-searches h2 {
+    margin: 80px 10px 0px;
   }
 }
