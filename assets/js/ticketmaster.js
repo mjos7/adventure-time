@@ -50,9 +50,9 @@ var fetchAPI = function () {
 
         ticketmasterData.info = event.info;
         if (ticketmasterData.info != undefined) {
-          if (ticketmasterData.info.length > 150)
+          if (ticketmasterData.info.length > 85)
             ticketmasterData.info =
-              ticketmasterData.info.substring(0, 150) + '...';
+              ticketmasterData.info.substring(0, 85) + '...';
         }
         ticketmasterData.url = event.url;
         ticketmasterData.img = event.images[0].url;

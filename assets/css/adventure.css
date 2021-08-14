@@ -131,6 +131,8 @@ nav h2 {
 .event-info {
   border-radius: 0 0 0 15px;
   text-align: end;
+  padding-left: 0px;
+  margin-left: -20px;
 }
 
 .restaurant-info h3,
@@ -146,7 +148,7 @@ nav h2 {
 
 address {
   font-size: 14px;
-  line-height: 2px;
+  line-height: 1.5em;
   /* text-decoration: none; */
   /* font-style: normal; */
   color: inherit;
@@ -184,7 +186,7 @@ map iframe {
   margin-top: 30px;
   margin-right: 0;
   right: 0px;
-  height: 71vh;
+  height: 94.5%;
   width: 100%;
   -webkit-filter: grayscale(30%);
   -moz-filter: grayscale(30%);
@@ -207,13 +209,20 @@ map iframe {
 
 /* MEDIA QUERIES */
 
-@media screen and (max-width: 1400px) {
+@media screen and (max-width: 1465px) {
   .restaurant-image img,
   .event img {
     max-width: 300px;
   }
-}
 
+  .restaurant-info button {
+    width: 90%;
+  }
+
+  .main-footer h5 {
+    position: unset !important;
+  }
+}
 @media screen and (max-width: 1250px) {
   .restaurant img,
   .event img {
@@ -230,10 +239,14 @@ map iframe {
     margin-right: 0;
   }
   .event-info {
-    padding-left: 0;
+    padding-left: 0px;
   }
   .restaurant-info {
     padding-left: 50px;
+  }
+
+  #event-description {
+    width: 100%;
   }
 
   #map {
@@ -250,6 +263,9 @@ map iframe {
   .event img {
     width: 90%;
     border-radius: 15px;
+  }
+  .restaurant-info button {
+    width: 80%;
   }
 }
 
