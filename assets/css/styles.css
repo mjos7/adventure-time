@@ -272,6 +272,12 @@ div#city input {
   }
 }
 
+@media screen and (max-width: 1250px) {
+  .hero {
+    height: 110vh;
+  }
+}
+
 @media screen and (max-width: 960px) {
   .hero {
     justify-content: center;
@@ -328,10 +334,6 @@ div#city input {
   .cst-btn-lft,
   .recent-searches {
     border-radius: 15px;
-  }
-
-  .hero {
-    height: 100vh;
   }
 
   .hero-statement {
