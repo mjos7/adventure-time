@@ -293,7 +293,7 @@ div#city input {
   }
 }
 
-@media screen and (max-width: 755px) {
+@media screen and (max-width: 800px) {
   .cst-btn,
   .cst-btn-cntr,
   .cst-btn-rgt,
@@ -308,6 +308,9 @@ div#city input {
 
   input#location {
     text-align: center;
+  }
+  .date-input input {
+    padding: 20px;
   }
 }
 
@@ -394,9 +397,6 @@ div#city input {
     justify-content: center;
   }
 
-  .date-input input {
-    padding: 20px;
-  }
   .cst-btn-lft {
     padding: 0;
   }
