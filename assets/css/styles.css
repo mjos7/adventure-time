@@ -365,7 +365,12 @@ form.search-input.flex.justify-between {
   }
 
   #recent-searches h2 {
-    margin: 160px 10px 0px;
+    margin: 80px 10px 0px;
+  }
+
+  header,
+  .hero {
+    margin-bottom: 100px;
   }
 
   .cst-btn,
