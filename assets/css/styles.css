@@ -189,6 +189,10 @@ div#city input {
   padding: 0 30px;
 }
 
+form.search-input.flex.justify-between {
+  margin-top: 0;
+}
+
 .rd-day-selected,
 .rd-time-selected,
 .rd-time-option:hover {
@@ -275,6 +279,13 @@ div#city input {
     width: 100%;
     min-width: 200px;
   }
+
+  header,
+  .hero {
+    background-position: 50%;
+    height: 84vh;
+    margin-bottom: 200px;
+  }
 }
 
 @media screen and (max-width: 960px) {
@@ -286,9 +297,12 @@ div#city input {
     padding: 0;
   }
 
-  header,
+  #recent-searches h2 {
+    margin: 250px 10px 0px;
+  }
+
   .hero {
-    background-position: 50%;
+    height: 90vh;
   }
 }
 
