@@ -104,6 +104,10 @@ a:hover {
   color: white;
 }
 
+.form-group {
+  margin-bottom: 0 !important;
+}
+
 #city-input {
   background-color: hsla(36, 100%, 90%, 0.2);
   border: none;
@@ -167,7 +171,7 @@ a:hover {
   width: 100%;
   background: rgba(0, 0, 0, 0) !important;
   text-align: center;
-  height: 15px;
+  height: 25px;
   margin: 0;
   padding: 0;
   border: none;
