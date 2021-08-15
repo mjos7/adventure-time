@@ -133,7 +133,7 @@ a:hover {
 }
 
 .cst-btn {
-  padding: 15px;
+  /* padding: 15px; */
   background-color: hsla(36, 100%, 90%, 0.2);
   border: solid;
   color: white;
@@ -164,7 +164,8 @@ a:hover {
   border-radius: 0 10px 10px 0;
   background-color: #b89449;
   width: 50%;
-  font-weight: 700;
+  font-weight: 500;
+  font-size: 18px;
   color: #f0f0f0;
 }
 
@@ -176,7 +177,7 @@ a:hover {
   margin: 0;
   padding: 0;
   border: none;
-  color: white !important;
+  color: #f0f0f0 !important;
 }
 
 .form-control:focus {
@@ -185,8 +186,29 @@ a:hover {
 }
 
 div#city input {
-  color: white;
-  padding: 0 30px;
+  color: #f0f0f0;
+}
+
+.cst-btn {
+  padding: 0;
+}
+
+div#city,
+div#city input,
+.date-input input {
+  height: 50px;
+  padding: 0;
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  text-align: center;
+  color: #f0f0f0;
+}
+
+div#city input::placeholder {
+  color: #f0f0f0;
+  opacity: 1;
+  font-size: 18px;
 }
 
 form.search-input.flex.justify-between {
@@ -322,6 +344,10 @@ form.search-input.flex.justify-between {
   input#location {
     text-align: center;
   }
+
+  button#search {
+    padding: 15px;
+  }
 }
 
 @media screen and (max-width: 560px) {
@@ -350,7 +376,8 @@ form.search-input.flex.justify-between {
   }
   div#city,
   div#city input,
-  .date-input input {
+  .date-input input,
+  input#location {
     height: 50px;
     padding: 0;
     justify-content: center;
