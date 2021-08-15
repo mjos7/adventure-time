@@ -274,7 +274,7 @@ div#city input {
 
 @media screen and (max-width: 1250px) {
   .hero {
-    height: 110vh;
+    height: 90vh;
   }
 }
 
@@ -308,9 +308,6 @@ div#city input {
 
   input#location {
     text-align: center;
-  }
-  .date-input input {
-    padding: 20px;
   }
 }
 
