@@ -250,6 +250,7 @@ form.search-input.flex.justify-between {
   flex-direction: column;
   width: 100%;
   border: solid;
+  background-color: #e8e8e8;
   border-color: rgb(237, 237, 237);
   box-shadow: 0 1px 10px rgb(0 0 0 / 0.1);
   border-width: 1px;
