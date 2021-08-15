@@ -157,6 +157,7 @@ a:hover {
 .cst-btn-cntr {
   border-radius: 0;
   width: 100%;
+  color: white;
 }
 
 .cst-btn-rgt {
@@ -339,7 +340,23 @@ div#city input {
   .recent-searches {
     border-radius: 15px;
   }
+  div#city,
+  div#city input,
+  .date-input input {
+    height: 50px;
+    padding: 0;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+  }
 
+  .cst-btn {
+    padding: 0;
+  }
+
+  .cst-btn-rgt {
+    padding: 15px;
+  }
   .hero-statement {
     margin-top: 0vh;
   }
