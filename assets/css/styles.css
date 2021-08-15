@@ -277,12 +277,6 @@ div#city input {
   }
 }
 
-@media screen and (max-width: 1250px) {
-  .hero {
-    height: 90vh;
-  }
-}
-
 @media screen and (max-width: 960px) {
   .hero {
     justify-content: center;
