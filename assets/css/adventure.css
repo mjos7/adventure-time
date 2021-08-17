@@ -202,7 +202,7 @@ map iframe {
   color: white;
   text-align: center;
   font-weight: 300;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100%;
 }
