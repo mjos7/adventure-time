@@ -170,6 +170,10 @@ address {
   transition: 0.5s;
 }
 
+.main-footer h5 {
+  position: unset !important;
+}
+
 .restaurant-info button:hover,
 .event-info button:hover {
   background-color: rgba(169, 125, 5, 0.2);
@@ -213,13 +217,10 @@ map iframe {
   }
 
   .restaurant-info button {
-    width: 90%;
+    width: 70%;
   }
 
-  .main-footer h5 {
-    position: unset !important;
-  }
-}
+
 @media screen and (max-width: 1250px) {
   .restaurant img,
   .event img {
@@ -239,7 +240,7 @@ map iframe {
     padding-left: 0px;
   }
   .restaurant-info {
-    padding-left: 10px;
+    padding-left: 50px;
   }
 
   #event-description {
@@ -260,6 +261,13 @@ map iframe {
 
   .event {
     border-radius: 0 0 29px 20px;
+  }
+
+  .flex-wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
   }
 }
 
@@ -312,7 +320,7 @@ map iframe {
   .restaurant-info,
   .event-info {
     margin-bottom: 30px;
-    height: auto;
+    /* height: auto; */
   }
 
   #event-link,
